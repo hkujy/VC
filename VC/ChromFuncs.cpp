@@ -27,6 +27,7 @@ void CHROME::ReviseCap(GRAPH &Graph, ObjectManager &manager) {
 		int LinkId = this->VulnerableLinks[i];
 		Graph.Links.at(LinkId).CaRevise
 			= Graph.Links.at(LinkId).CaInput * (1.0f - this->VulnerableLinkDof.at(i));
+		Graph.Links.at(LinkId).CaRevise = max(Graph.Links.at(LinkId).CaRevise, 0.000001);
 			// min(Graph.Links.at(LinkId).CaRevise / Graph.Links.at(LinkId).CaInput, 1.0f - this->VulnerableLinkDof.at(LinkId));
 		// manager.getNet()->getLink(i)->getLinkFnc()->setCapacity(Graph.Links.at(i).CaRevise);
 		manager.getNet()->getLink(LinkId)->getLinkFnc()->setCapacity(Graph.Links.at(LinkId).CaRevise);
@@ -40,7 +41,6 @@ void CHROME::IniCap(GRAPH &_Graph, ObjectManager &manager) {
 		int LinkiD = this->VulnerableLinks[i];
 		_Graph.Links.at(LinkiD).IniCap();
 		manager.getNet()->getLink(LinkiD)->getLinkFnc()->setCapacity(_Graph.Links.at(LinkiD).CaInput);
-
 	}
 
 	//for (int i = 0; i < this->VulnerableLinks.size(); i++)
@@ -65,6 +65,20 @@ double CHROME::getSolProb(){
 	return r;
 }
 
+
+void CHROME::EvaluateSol(GRAPH &Graph, ObjectManager &manager)
+{
+	// step 1 update cost:
+	this->ReviseCap(Graph, manager);
+	// Step 2  Probability of scenarios 
+	//this->SolProb = getSolProb();
+	//	cout << "check" << endl;
+	Graph.EvaluteGraph(manager, manager.getEqAlgo());
+	//assert(Graph.PrintLinks(AssertLog));
+	this->IniCap(Graph, manager); // after revising the capacity and change it back
+	//Graph.EaluteGraph(manager, manager.getEqAlgo());
+
+}
 void CHROME::EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &manager)
 {
 	// step 1 update cost:
@@ -81,8 +95,6 @@ void CHROME::EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &man
 	//}
 	//if (allZeor)
 	//	cout << "check" << endl;
-
-
 	Graph.EvaluteGraph(manager,manager.getEqAlgo());
 	//assert(Graph.PrintLinks(AssertLog));
 	this->IniCap(Graph,manager); // after revising the capacity and change it back
@@ -99,40 +111,6 @@ void CHROME::EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &man
 	}
 }
 
-
-int CHROME::PrintSol(ofstream &fout){
-
-	//if ( this->VulnerableLinks.size()>0)
-	//{
-	//	vector<bool> isFailLink(this->VulnerableLinks.size(), false);
-	//	for (auto i = this->VulnerableLinks.begin(); i != this->VulnerableLinks.end(); i++)
-	//	{
-	//		//int LinkId = this->VulnerableLinks.at(*i);
-	//		//isFailLink[*i] = true;
-	//		isFailLink[*i] = true;
-	//	}
-	//	for (int i = 0; i < this->VulnerableLinks.size(); i++)
-	//	{
-	//		if (!isFailLink[i]) continue;
-	//		for (unsigned int j = 0; j < this->VulnerableLinks.size(); j++)
-	//		{
-	//			if (this->VulnerableLinks.at(j) == i)
-	//			{
-	//				fout << this->VulnerableLinkDof.at(j) << ",";
-	//			}
-	//		}
-	//	}
-	//	fout << endl;
-	//}
-
-	for (int i = 0; i < this->VulnerableLinks.size()-1; i++)
-	{
-		fout << this->VulnerableLinkDof.at(i) << ",";
-	}
-	fout << this->VulnerableLinkDof.back() <<endl;
-	//fout << endl;
-	return 1;
-}
 
 // copy constructor 
 void CHROME::Copy(const CHROME& FromSource){

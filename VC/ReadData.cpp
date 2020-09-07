@@ -63,33 +63,25 @@ bool ReadDemandData(vector<OD> &ODPairs,
 bool PrintModelParas(){
 
 	ofstream fout;
-	fout.open("c://GitCodes//ResiV2//OutPut//ModelPara.txt");
-
+	//fout.open("c://GitCodes//VC//OutPut//ModelPara.txt");
+	fout.open(mf.rootfolder + "OutPut//ModelPara.txt");
 	fout << "NumNodes" << "," << NumNodes << endl;
 	fout << "NumOD" << "," << NumOD << endl;
 	fout << "NumLinks" << "," << NumLinks << endl;
 	fout << "StopCriteria" << "," << StopCriteria << endl;
 	fout << "MaxNumSol" << "," << MaxNumSolEval << endl;
-
 	fout << "OneDimEsp" << "," << OneDimEsp << endl;
 	fout << "UEmaxIter" << "," << UEmaxIter << endl;
-	fout << "CsaNumPo" << "," << CsaNumPop << endl;
-	fout << "CsaCloneBeta" << "," << CsaCloneBeta << endl;
-	fout << "CsaRepRatio" << "," << CsaRepRatio << endl;
-
-	fout << "MaxCsaIter" << "," << MaxCsaIter << endl;
-	fout << "GANumPop" << "," << GANumPop << endl;
-	fout << "GANumChild" << "," << GANumChild << endl;
-	fout << "MaxGAIter" << "," << MaxGAIter << endl;
-	fout << "GaMutationRate" << "," << GaMutationRate << endl;
 	fout.close();
 
 	return true;
 }
 /*Read My own parameters for the algorithm */
 bool ReadModelParas(){
-	ifstream fin; fin.open("c://GitCodes//ResiV2//InPut//Para.txt");
 
+	//ifstream fin; fin.open("c://GitCodes//VC//InPut//Para.txt");
+	ifstream fin; 
+	fin.open(mf.rootfolder+"InPut//Para.txt");
 	std::string line;
 	std::vector<string> fields;
 	std::cout<<"Remark: NumOD, NumNode, NumLinks are set based manger network"<<endl;
@@ -101,7 +93,6 @@ bool ReadModelParas(){
 		if (fields[0] == "UEeps")	UEeps = stof(fields[1]);
 		if (fields[0] == "UEmaxIter")	UEmaxIter = stoi(fields[1]);
 		if (fields[0] == "MaxNumSol")	MaxNumSolEval = stoi(fields[1]);
-		if (fields[0] == "StopCriteria")	StopCriteria = stoi(fields[1]);
 		if (fields[0] == "Network")  NetworkName = fields[1];
 		if (fields[0] == "WhereToWrite")
 		{
@@ -114,14 +105,6 @@ bool ReadModelParas(){
 			if (fields[1]._Equal("0")) isWriteConverge = false;
 			if (fields[1]._Equal("1")) isWriteConverge = true;
 		}
-		if (fields[0] == "CsaNumPop")	CsaNumPop = stoi(fields[1]);
-		if (fields[0] == "CsaCloneBeta")	CsaCloneBeta = stof(fields[1]);
-		if (fields[0] == "CsaRepRatio")	CsaRepRatio = stof(fields[1]);
-		if (fields[0] == "MaxCsaIter")	MaxCsaIter = stoi(fields[1]);
-		if (fields[0] == "GANumPop")	GANumPop = stoi(fields[1]);
-		if (fields[0] == "GANumChild")	GANumChild = stoi(fields[1]);
-		if (fields[0] == "MaxGAIter")	MaxGAIter = stoi(fields[1]);
-		if (fields[0] == "GaMutationRate")	GaMutationRate = stof(fields[1]);
 		if (fields[0] == "TestIndex")  TestIndex = stoi(fields[1]);
 	}
 	fin.close();

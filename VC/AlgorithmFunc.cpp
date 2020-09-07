@@ -39,82 +39,79 @@ void Algorithms::Enumerate(GRAPH &BaseGraph, ObjectManager &manager)
 
 	int NumSol = 0;
 #pragma region BrutefoceAllSolutions
-	for (int d0 = 0; d0 < LinkDofSet[0].size(); ++d0)
-	{
-		for (int d1 = 0; d1 < LinkDofSet[1].size(); ++d1)
-		{
-			for (int d2 = 0; d2 < LinkDofSet[2].size(); ++d2)
-			{
-				for (int d3 = 0; d3 < LinkDofSet[3].size(); ++d3)
-				{
-					for (int d4 = 0; d4 < LinkDofSet[4].size(); ++d4)
-					{
-						for (int d5 = 0;d5 < LinkDofSet[5].size();++d5)
-						{
-							for (int d6 = 0;d6 < LinkDofSet[6].size();++d6)
-							{
-								for (int d7 = 0;d7 < LinkDofSet[7].size();++d7)
-								{
-									for (int d8 = 0;d8 < LinkDofSet[8].size();++d8)
-									{
-										for (int d9 = 0;d9 < LinkDofSet[9].size();++d9)
-										{
-											//if (NumSol==100) break;
-											Chroms.push_back(tmc);
-											Chroms.back().clear();
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[0]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[1]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[2]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[3]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[4]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[5]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[6]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[7]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[8]);
-											Chroms.back().VulnerableLinks.push_back(LinkVarSet[9]);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[0].at(d0).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[1].at(d1).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[2].at(d2).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[3].at(d3).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[4].at(d4).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[5].at(d5).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[6].at(d6).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[7].at(d7).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[8].at(d8).first);
-											Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[9].at(d9).first);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[0].at(d0).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[1].at(d1).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[2].at(d2).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[3].at(d3).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[4].at(d4).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[5].at(d5).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[6].at(d6).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[7].at(d7).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[8].at(d8).second);
-											Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[9].at(d9).second);
-											Chroms.back().ID = NumSol;
-											NumSol++;
+	//for (int d0 = 0; d0 < LinkDofSet[0].size(); ++d0)
+	//{
+	//	for (int d1 = 0; d1 < LinkDofSet[1].size(); ++d1)
+	//	{
+	//		for (int d2 = 0; d2 < LinkDofSet[2].size(); ++d2)
+	//		{
+	//			for (int d3 = 0; d3 < LinkDofSet[3].size(); ++d3)
+	//			{
+	//				for (int d4 = 0; d4 < LinkDofSet[4].size(); ++d4)
+	//				{
+	//					for (int d5 = 0;d5 < LinkDofSet[5].size();++d5)
+	//					{
+	//						for (int d6 = 0;d6 < LinkDofSet[6].size();++d6)
+	//						{
+	//							for (int d7 = 0;d7 < LinkDofSet[7].size();++d7)
+	//							{
+	//								for (int d8 = 0;d8 < LinkDofSet[8].size();++d8)
+	//								{
+	//									for (int d9 = 0;d9 < LinkDofSet[9].size();++d9)
+	//									{
+	//										//if (NumSol==100) break;
+	//										Chroms.push_back(tmc);
+	//										Chroms.back().clear();
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[0]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[1]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[2]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[3]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[4]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[5]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[6]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[7]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[8]);
+	//										Chroms.back().VulnerableLinks.push_back(LinkVarSet[9]);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[0].at(d0).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[1].at(d1).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[2].at(d2).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[3].at(d3).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[4].at(d4).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[5].at(d5).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[6].at(d6).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[7].at(d7).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[8].at(d8).first);
+	//										Chroms.back().VulnerableLinkDof.push_back(LinkDofSet[9].at(d9).first);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[0].at(d0).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[1].at(d1).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[2].at(d2).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[3].at(d3).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[4].at(d4).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[5].at(d5).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[6].at(d6).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[7].at(d7).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[8].at(d8).second);
+	//										Chroms.back().VulnerableLinkDofProb.push_back(LinkDofSet[9].at(d9).second);
+	//										Chroms.back().ID = NumSol;
+	//										NumSol++;
 
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
+	//									}
+	//								}
+	//							}
+	//						}
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 
 
 	cout << "total = " << Chroms.size() << endl;
 #pragma endregion
 
 	std::ofstream AllScanSol;
-	AllScanSol.open("c://GitCodes//ResiV2//OutPut//ScanSol.txt", ios::trunc);
-	//manager.getEqAlgo();
-	//DecoratedEqAlgo *algo = manager.getEqAlgo();
+	AllScanSol.open("c://GitCodes//VC//OutPut//ScanSol.txt", ios::trunc);
 
 
 	clock_t BaseST = clock();

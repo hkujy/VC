@@ -4,14 +4,6 @@ UEeps,0.0001
 UEmaxIter,5000
 MaxNumSol,50000
 StopCriteria,1
-Network,Anaheim
+Network,SiouxFalls
 isWriteConverge,0
 WhereToWrite,1
-CsaNumPop,10
-CsaCloneBeta,0.9
-CsaRepRatio,0.1
-MaxCsaIter,500
-GANumPop,10
-GANumChild,10
-GaMutationRate,0.1
-MaxGAIter,500

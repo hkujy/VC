@@ -16,13 +16,11 @@ extern int NumLinks;
 extern int NumNodes;
 extern int NumOD;
 //extern std::ofstream TestStepSize/*;*/
-extern std::ofstream Log;
 extern double OneDimEsp;
 extern int TestIndex;
 extern double UEeps;
 extern int UEmaxIter;
 extern std::default_random_engine GenRan;
-extern std::ofstream  AssertLog;
 extern int MaxCsaIter;
 //extern int ModelIndex;
 extern int CsaNumPop;
@@ -35,9 +33,5 @@ extern int GANumChild;
 extern int MaxNumSolEval;
 extern OutPutChanal WriteOutTo;
 extern int StopCriteria;  
-extern int CSACloneMethod;
-extern double GaMutationRate;
-// stop criteria =1: based on number of solution evalueated
-// stop criteria =0: normal : based on number of iterations
 
 #endif

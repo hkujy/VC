@@ -4,10 +4,10 @@ using namespace std;
 
 void OutPutGraph(GRAPH &Graph){
 	std::ofstream  fout;
-	fout.open("c://GitCodes//ResiV2//OutPut//LinkSummary.txt", ios::app);
+	fout.open("c://GitCodes//VC//OutPut//LinkSummary.txt", ios::app);
 	Graph.PrintLinks(fout);
 	fout.close();
-	fout.open("c://GitCodes//ResiV2//OutPut//ODsummary.txt", ios::app);
+	fout.open("c://GitCodes//VC//OutPut//ODsummary.txt", ios::app);
 	Graph.PrintOD(fout);
 	fout.close();
 }
@@ -15,13 +15,13 @@ void OutPutGraph(GRAPH &Graph){
 void OutputSummary(vector<CHROME> &BestSol,GRAPH &Graph,vector<double> &CpuTime,
 		  ObjectManager &manager){
 	std::ofstream  foutLink,foutOD,fSummay,fsol;
-	fSummay.open("c://GitCodes//ResiV2//OutPut//Summary.txt", ios::app);
+	fSummay.open("c://GitCodes//VC//OutPut//Summary.txt", ios::app);
 	//double BaseUNPM;
 	//Graph.EvaluteGraph(manager,manager.getEqAlgo());
 	//BaseUNPM = Graph.UNPM;
 	
-	//foutLink.open("c://GitCodes//ResiV2//OutPut//BestSolLink.txt", ios::app);
-	//foutOD.open("c://GitCodes//ResiV2//OutPut//BestSolOD.txt", ios::app);
+	//foutLink.open("c://GitCodes//VC//OutPut//BestSolLink.txt", ios::app);
+	//foutOD.open("c://GitCodes//VC//OutPut//BestSolOD.txt", ios::app);
 
 	fSummay << "UNPM" << ",";
 	fSummay << "ImpactValue" << ",";
@@ -55,12 +55,12 @@ void OutputSummary(vector<CHROME> &BestSol,GRAPH &Graph,vector<double> &CpuTime,
 	}
 	
 
-	//fSummay << "BestUNPM" << "," << Graph.UNPM << endl;
-	fsol.open("c://GitCodes//ResiV2//OutPut//PrintSols.txt", ios::app);
-	for (size_t i = 0; i < BestSol.size(); i++)
-	{
-		BestSol.at(i).PrintSol(fsol);
-	}
+	////fSummay << "BestUNPM" << "," << Graph.UNPM << endl;
+	//fsol.open("c://GitCodes//VC//OutPut//PrintSols.txt", ios::app);
+	//for (size_t i = 0; i < BestSol.size(); i++)
+	//{
+	//	BestSol.at(i).PrintSol(fsol);
+	//}
 	foutLink.close();
 	foutOD.close(); 
 	fSummay.close(); 

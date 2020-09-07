@@ -4,13 +4,16 @@
 #include <stdarg.h> /* va_list, va_start, va_arg, va_end */
 #include <string.h>
 #include <ctime>
+#include "Classes.h"
 #include <fstream>
+#include <cstring>
 using namespace std;
 void LogMsg(const char *format, ...) {
 
 	FILE *LogFile;
-	errno_t err = fopen_s(&LogFile, "C://GitCodes//ResiV2//OutPut//Log.txt", "a+");
 
+	size_t n = (mf.rootfolder + "OutPut//MsgLog.txt").length();
+	errno_t err = fopen_s(&LogFile, (mf.rootfolder + "OutPut//MsgLog.txt").c_str(), "a+");
 	if (LogFile == NULL)
 	{
 		cout << "LogFile is Not Opened" << endl;

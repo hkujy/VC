@@ -3,6 +3,7 @@
 #define MyClasses
 #include <vector>
 #include <map>
+#include <direct.h> // _getcwd
 #include "Parameters.h"
 #include "TempleteFunc.h"
 #include "GlobalVar.h"
@@ -98,10 +99,10 @@ public:
 	std::vector<OriginBasedOD> OriginSet;
 	std::vector<int> VulnerableLinks;
 	std::vector<vector<pair<double,double>>>  VulnerableLinksDof;
+	int NowVulLink;
 	double UNPM;
 	double TotalSystemCost;
 	int **MinPathPredLink;
-	
 	GRAPH();
 	~GRAPH();
 	/*Shortest Path*/
@@ -123,6 +124,7 @@ public:
 	/**Compute graph total cost and UNPM**/
 	//void EvaluteGraph(ObjectManager &Man);
 	void EvaluteGraph(ObjectManager &Man, DecoratedEqAlgo *algo);
+	void PrintGraph(ObjectManager &Man);
 	friend class CHROME;
 	friend class Algorithms;
 };
@@ -153,6 +155,8 @@ public:
 	void clear();
 	/*evaluate a solution*/
 	void EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &manager);
+	/*evaluate a solution*/
+	void EvaluateSol(GRAPH &Graph, ObjectManager &manager);
 	/*Revise capacity*/
 	void ReviseCap(GRAPH &Graph, ObjectManager &manager);
 	/*set original capacity*/
@@ -160,7 +164,6 @@ public:
 	/*get scenario probability*/
 	double getSolProb();
 	/*print sol*/
-	int PrintSol(ofstream &fout);
 	void Copy(const CHROME& FromSource); // does not copy solution ID
 	bool isSame(const CHROME &CompareSource);
 	CHROME();
@@ -183,25 +186,75 @@ public:
 	std::vector<vector<pair<double, double>>>  LinkDofSet;
 	vector<CHROME> Chroms;
 	/*generate inital solution*/
-	int  GenerateSol(int ChromIndex);
-	void SortSol(unsigned int Num);
-	void HyperMutateMain(CHROME &Chrom);
-	void FirstProcedure(CHROME &Chrom);
-	void SecondProcedure(CHROME &Chrom, double Ratio);
-	/*add new failure nodes: if the Dof is zero, then increase to nonzero*/
-	void addNewNode(CHROME &Chrom);
-	void removeNodeDof(CHROME &Chrom);
-	void exchangeNodeDof(CHROME &Chrom);
-	void GAselectParent(int &Father, int &Mother, const int NumPop);
-	void GACrossOver(CHROME &Father, CHROME &Mother, CHROME &BigBro, CHROME &CuteSis);
 	void init(GRAPH &Graph, ObjectManager &manager);
-	void CSAmain(GRAPH &Graph, int NumPop, int NumClone, int NumRep, ofstream &ConvergeFile, ObjectManager &manager);
-	void GAmain(GRAPH &Graph, const int NumPop, const int NumChild, ofstream &ConvergeFile, ObjectManager &manager);
 	void Enumerate(GRAPH &BaseGraph, ObjectManager &manager);
 
-	Algorithms(int NumPop, int NumClone, int NumRep);//CSA
-	Algorithms(int NumPop, int NumChild);//GA
+	//Algorithms(int NumPop, int NumClone, int NumRep);//CSA
+	//Algorithms(int NumPop, int NumChild);//GA
 	Algorithms();  // enuerate
-	~Algorithms();
+	//~Algorithms();
 };
+
+
+class MyFiles
+{
+public:
+	std::ofstream printOD;
+	std::ofstream printLink;
+	std::ofstream printSummary;
+	std::ofstream printModelPara;
+	std::ofstream printLog;
+	std::string rootfolder;
+	MyFiles() { set_root_folder(); IniFiles(); };
+	~MyFiles()
+	{
+		printOD.close(); printLink.close(); printSummary.close();
+		printModelPara.close(); printLog.close();
+	};
+	void IniFiles()
+	{
+		printOD.open(rootfolder + "OutPut//" + "OD.txt", ios::trunc);
+		printOD << "VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
+		printLink.open(rootfolder + "OutPut//" + "Link.csv", ios::trunc);
+		printLink << "VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
+		printModelPara.open(rootfolder + "OutPut//" + "ModelPara.csv", ios::trunc);
+		printSummary.open(rootfolder + "OutPut//" + "Summary.", ios::trunc);
+		printLog.open(rootfolder + "OutPut//" + "MsgLog.csv", ios::trunc); printLog.close(); printLog.clear();
+		printLog.open(rootfolder + "OutPut//" + "Log.txt", ios::trunc);
+	}
+	void set_root_folder()
+	{
+		char* buffer;
+		if ((buffer = _getcwd(NULL, 0)) == NULL) perror("_getcwd error");
+		string ff(buffer);
+		std::vector<std::string> SubStrs, ResidualStr;
+		std::string::size_type Sub1Begin, Sub1End;
+		Sub1Begin = 0;
+		SubStrs.clear();
+		Sub1End = ff.find("\\");
+		do
+		{
+			SubStrs.push_back(ff.substr(Sub1Begin, Sub1End - Sub1Begin));
+			Sub1Begin = Sub1End + 1;
+			Sub1End = ff.find("\\", Sub1End + 1);
+		} while (Sub1End != std::string::npos);
+		SubStrs.push_back(ff.substr(Sub1Begin, Sub1End - Sub1Begin));
+		for (size_t i = 0; i < SubStrs.size() - 1; i++)
+		{
+			if (SubStrs[i + 1]._Equal("VC"))
+			{
+				rootfolder = rootfolder + SubStrs[i];
+				break;
+			}
+			else
+			{
+				rootfolder = rootfolder + SubStrs[i] + "\\";
+			}
+		}
+		rootfolder = rootfolder + "\\VC\\";
+	}
+};
+
+extern MyFiles mf;
+
 #endif

@@ -24,6 +24,7 @@ GRAPH::GRAPH(){
 			this->MinPathPredLink[i][j] = InvaildInt;
 		}
 	}
+	this->NowVulLink = -1;
 
 };
 GRAPH::~GRAPH(){
@@ -91,6 +92,7 @@ void GRAPH::CreateOriginSet()
 		this->OriginSet.at(od->Orign).ODset.push_back(&*od);
 	}
 }
+
 
 void GRAPH::ReadVunLinks(string VunerableFileName)
 {
@@ -164,6 +166,7 @@ int GRAPH::PrintLinks(std::ofstream &fout){
 	try{
 		assert(fout.good());
 		fout.setf(ios::fixed);
+		fout << left << setw(6) << "VunLink" << ",";
 		fout << left << setw(6) << "ID" << ",";
 		fout << left << setw(12) << "Tail" << ",";
 		fout << left << setw(12) << "Head" << ",";
@@ -207,7 +210,6 @@ int GRAPH::PrintOD(std::ofstream &fout)
 		fout << left << setw(12) << "Demand" << ",";
 		fout << left << setw(12) << "MinCost" << ",";
 		fout << endl;
-
 		for (auto od = this->OdPairs.begin(); od != this->OdPairs.end(); od++)
 		{
 			fout << od->ID << ",";
@@ -216,7 +218,6 @@ int GRAPH::PrintOD(std::ofstream &fout)
 			fout << od->Demand << ",";
 			fout << od->MinCost << ",";
 			fout << endl;
-
 		}
 		return 1;
 	}
@@ -231,7 +232,6 @@ int GRAPH::PrintOD(std::ofstream &fout)
 int GRAPH::PrintSp(int Orign, int Dest, std::ofstream &fout)
 {
 	try{
-
 		vector<int> Path;
 		for (auto o = this->OriginSet.begin(); o != this->OriginSet.end(); o++)
 		{
@@ -263,5 +263,66 @@ int GRAPH::PrintSp(int Orign, int Dest, std::ofstream &fout)
 		return 0;
 	}
 }
+
+void GRAPH::PrintGraph(ObjectManager &Man)
+{
+	// first: print OD pairs
+	for (ConstOriginIterator it = Man.getODMatrix()->begin(); it != Man.getODMatrix()->end(); ++it)
+	{
+		Origin* origin = *it;
+		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
+		{
+			PairOD* dest = *destIt;
+			mf.printOD << NowVulLink << ",";
+			mf.printOD << origin->getIndex() << ",";
+			mf.printOD << dest->getIndex() << ",";
+			mf.printOD << dest->getODIndex() << ",";
+			mf.printOD << dest->getDemand() << ",";
+			mf.printOD << dest->getODminCost();
+			mf.printOD << endl;
+		}
+	}
+	mf.printOD.flush();
+
+	// Second: print links
+
+
+	for (auto l = Man.getNet()->beginOnlyLink(); l != NULL; l = Man.getNet()->getNextOnlyLink())
+	{
+		mf.printLink << NowVulLink << ",";
+		mf.printLink << l->getIndex() << ",";
+		mf.printLink << l->getNodeFrom() << ",";
+		mf.printLink << l->getNodeTo() << ",";
+		mf.printLink << l->getLinkFnc()->getFreeFlowTime() << ",";
+		mf.printLink << l->getFlow() << ",";
+		mf.printLink << l->getLinkFnc()->getCapacity() << ",";
+		mf.printLink << l->getLinkFnc()->getAlpha() << ",";
+		mf.printLink << l->getLinkFnc()->getPower() << ",";
+		mf.printLink << l->getTime();
+		mf.printLink << endl;
+	}
+	mf.printLink.flush();
+
+
+}
+
+void GRAPH::EvaluteGraph(ObjectManager &Man, DecoratedEqAlgo *algo)
+{
+	int nbIter = algo->execute();
+	FPType tc = 0.0;
+	for (ConstOriginIterator it = Man.getODMatrix()->begin(); it != Man.getODMatrix()->end(); ++it)
+	{
+		Origin* origin = *it;
+		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
+		{
+			PairOD* dest = *destIt;
+			tc += dest->getDemand()*dest->getODminCost();
+			assert(dest->getODminCost() > 0.0f);
+		}
+	}
+	PrintGraph(Man);
+}
+
+
 
 
