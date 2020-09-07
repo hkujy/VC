@@ -1,0 +1,33 @@
+// define global variables
+#ifndef DGV
+#define DGV
+#include <string.h>
+#include <random>
+//defines global
+int NumOrig;
+int NumDest;
+int NumLinks;
+int NumNodes;
+int NumOD;
+double  OneDimEsp;
+double  UEeps;
+int	   UEmaxIter;
+int TestIndex;
+std::default_random_engine GenRan;
+int MaxCsaIter;
+//int ModelIndex;
+std::ofstream  AssertLog;
+int CsaNumPop;
+double CsaCloneBeta;
+double CsaRepRatio;
+int MaxGAIter;
+int GANumPop;
+int GANumChild;
+OutPutChanal WriteOutTo;
+int MaxNumSolEval;
+int StopCriteria;
+int CSACloneMethod;
+double GaMutationRate;
+bool isWriteConverge;
+std::string NetworkName;
+#endif

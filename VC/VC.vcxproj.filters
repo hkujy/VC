@@ -1,0 +1,971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="AssignHeader">
+      <UniqueIdentifier>{9c2cd5bc-b3e4-43cb-b5b8-4f61fd3ccc72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AssignSource">
+      <UniqueIdentifier>{cb389c83-83c7-4f8b-917a-4e3d81049e24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Classes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonHeaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TempleteFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefGloVar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomFuncs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AddHook.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AddHookScreenAndStore.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AddHookScreenOut.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AddHookStoreOut.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AdditivePC.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AlgoDecorator.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AlgoDecoratorBase.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AlgoDecoratorWriteLinks.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AONAssignment.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AONBushBased.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AONNonAdditive.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AONUsual.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Armijo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Astar.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\AstarWithoutZoneSkip.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BiDirectionalPoint2PointBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BiObjLabel.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BiObjLabelContainer.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Bisection.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBackwardNet.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBSPBase.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BoundsCalculatorWithTimeUpdate.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\BprFnc.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ConcaveIndiffCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Constants.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ConstFnc.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ConvexIndiffCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ConvMeasure.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\CurrentPathsAdder.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraph.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraphB.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraphBWithStep.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraphLUCE.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraphNode.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DAGraphTapas.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DecoratedEqAlgo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DefaultNetParser.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DefaultODMatrixParser.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Derivative.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirection.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPathGP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPathISP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPathPE.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPathPG.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DescDirectionPathScaled.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DiffKMLNetOutput.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DominationByPathCost.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\DominationByPathCostBase.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\EqAlgo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Error.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\FileReader.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\FileWriter.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\FWAlgo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\IndiffCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\IndiffCurveContainer.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerConcaveCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerConvexCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerLinearCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\InitialiseSolution.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\KMLNetOutput.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\KMLPlotTolls.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\KMLSelectLink.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LabelCorrectingAl.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LabelCorrectingAlWithoutZonesCheck.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LabelSettingBSPBase.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LabelSettingOneSourceBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LabelSettingPoint2PointBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LatexNetOutput.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LatexNetOutputLinksExploredInBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LazyShortestPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LexOptComparison.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinearFnc.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinearIndiffCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LineSearch.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinkFlows.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinkFlowsBFW.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinkFlowsCFW.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinkFnc.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\LinkFncContainer.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\MaxDiffConvMeasure.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NetOutput.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NonAdditivePC.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NonAddParser.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NonAddShortestPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NonAddShortestPathForAON.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NonAddShortestPathWithLazyBSP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\NoPathsAdder.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ObjectManager.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ODMatrix.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ODSet.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ODSetGPApp3.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ODSetWithStep.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OneSourceBiObjShPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Origin.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBasedAlgo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoEQII.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoTapas.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoTapasEqII.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBush.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBushB.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBushLUCE.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginBushTapas.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\OriginSet.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PairOD.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Params.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ParseIndiffCurves.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ParseParams.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ParseSpecificIndiffCurves.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PAS.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PASManager.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PASManagerWithStep.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PASWithStep.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Path.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathAndDirection.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedAlgo.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedAlgoEqII.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedFlowMove.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedFlowMoveGP.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedFlowMovePE.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathBasedFlowMoveWithStep.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathCost.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathsAdder.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathSet.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathSetParser.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PathSetPrinterToFile.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\PieceWiseLinearIndiffCurve.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Point2PointBiObjShPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\QuadApp.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\RelGap.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ReverseNetwork.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ReverseNetworkWithTolls.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ShortestPath.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ShortestPathAdder.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ShortestPathWithRandomReturn.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\ShortestPathWithRandomReturnWithFixedProbability.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarLink.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarLinkTolls.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarLinkWithReverseLink.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarLinkWithTolls.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarNetwork.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarNetworkWithTolls.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StarNode.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StepSize.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\StepSizeAdd.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Timer.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\TollsManagement.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\UsedTypes.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\Utils.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\UtilsForDomination.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAssign\UtilsString.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FW_UE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCloseFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugMsg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LineSearchUingDirective.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChromFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSAFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSAMutation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanMedum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OutPutGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCsa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProbMatrixFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GAfuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CloneSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\UtilsString.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\UtilsForDomination.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Utils.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\TollsManagement.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Timer.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StepSizeAdd.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StepSize.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarNode.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarNetworkWithTolls.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarNetwork.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarLinkWithTolls.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarLinkWithReverseLink.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarLinkTolls.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\StarLink.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ShortestPathWithRandomReturnWithFixedProbability.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ShortestPathWithRandomReturn.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ShortestPathAdder.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ReverseNetworkWithTolls.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ReverseNetwork.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\RelGap.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\QuadApp.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PieceWiseLinearIndiffCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathSetPrinterToFile.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathSetParser.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathSet.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedFlowMoveWithStep.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedFlowMovePE.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedFlowMoveGP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedFlowMove.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedAlgoEqII.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathBasedAlgo.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PathAndDirection.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Path.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PASWithStep.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PASManagerWithStep.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PASManager.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PAS.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ParseSpecificIndiffCurves.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ParseParams.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ParseIndiffCurves.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Params.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\PairOD.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginSet.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBushTapas.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBushLUCE.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBushB.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBush.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoTapasEqII.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoTapas.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoEQII.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\OriginBasedAlgo.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Origin.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ODSetWithStep.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ODSetGPApp3.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ODSet.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ODMatrix.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ObjectManager.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NoPathsAdder.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NonAddShortestPathWithLazyBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NonAddShortestPathForAON.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NonAddShortestPath.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NonAddParser.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NonAdditivePC.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\NetOutput.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\MaxDiffConvMeasure.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinkFncContainer.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinkFlowsCFW.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinkFlowsBFW.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinkFlows.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinearIndiffCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LinearFnc.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LexOptComparison.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LazyShortestPath.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LatexNetOutputLinksExploredInBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LatexNetOutput.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LabelSettingPoint2PointBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LabelSettingOneSourceBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LabelSettingBSPBase.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LabelCorrectingAlWithoutZonesCheck.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\LabelCorrectingAl.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\KMLSelectLink.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\KMLPlotTolls.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\KMLNetOutput.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerLinearCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerConvexCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerConcaveCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\IndiffCurveContainer.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\FWAlgo.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\FileWriter.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\FileReader.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Error.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\EqAlgo.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DominationByPathCostBase.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DominationByPathCost.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DiffKMLNetOutput.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DescDirectionPathScaled.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DescDirectionPathPG.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DescDirectionPathPE.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DescDirectionPathISP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DescDirectionPathGP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Derivative.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DefaultODMatrixParser.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DefaultNetParser.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DAGraphTapas.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DAGraphLUCE.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DAGraphBWithStep.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DAGraphB.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\DAGraph.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\CurrentPathsAdder.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ConvexIndiffCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ConstFnc.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\ConcaveIndiffCurve.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BprFnc.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BoundsCalculatorWithTimeUpdate.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBSPBase.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBackwardNet.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Bisection.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BiObjLabelContainer.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BiObjLabel.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\BiDirectionalPoint2PointBSP.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AstarWithoutZoneSkip.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Astar.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\Armijo.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AONUsual.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AONNonAdditive.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AONBushBased.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AONAssignment.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AlgoDecoratorWriteLinks.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AlgoDecorator.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\AdditivePC.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MyAssign\0main.cpp">
+      <Filter>AssignSource</Filter>
+    </ClCompile>
+    <ClCompile Include="InterFace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgorithmFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="0_MainProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

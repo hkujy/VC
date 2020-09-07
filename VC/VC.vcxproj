@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MyAssign\AddHook.h" />
+    <ClInclude Include="..\MyAssign\AddHookScreenAndStore.h" />
+    <ClInclude Include="..\MyAssign\AddHookScreenOut.h" />
+    <ClInclude Include="..\MyAssign\AddHookStoreOut.h" />
+    <ClInclude Include="..\MyAssign\AdditivePC.h" />
+    <ClInclude Include="..\MyAssign\AlgoDecorator.h" />
+    <ClInclude Include="..\MyAssign\AlgoDecoratorBase.h" />
+    <ClInclude Include="..\MyAssign\AlgoDecoratorWriteLinks.h" />
+    <ClInclude Include="..\MyAssign\AONAssignment.h" />
+    <ClInclude Include="..\MyAssign\AONBushBased.h" />
+    <ClInclude Include="..\MyAssign\AONNonAdditive.h" />
+    <ClInclude Include="..\MyAssign\AONUsual.h" />
+    <ClInclude Include="..\MyAssign\Armijo.h" />
+    <ClInclude Include="..\MyAssign\Astar.h" />
+    <ClInclude Include="..\MyAssign\AstarWithoutZoneSkip.h" />
+    <ClInclude Include="..\MyAssign\BiDirectionalPoint2PointBSP.h" />
+    <ClInclude Include="..\MyAssign\BiObjLabel.h" />
+    <ClInclude Include="..\MyAssign\BiObjLabelContainer.h" />
+    <ClInclude Include="..\MyAssign\Bisection.h" />
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBackwardNet.h" />
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBSP.h" />
+    <ClInclude Include="..\MyAssign\BoundsCalculatorForBSPBase.h" />
+    <ClInclude Include="..\MyAssign\BoundsCalculatorWithTimeUpdate.h" />
+    <ClInclude Include="..\MyAssign\BprFnc.h" />
+    <ClInclude Include="..\MyAssign\ConcaveIndiffCurve.h" />
+    <ClInclude Include="..\MyAssign\Constants.h" />
+    <ClInclude Include="..\MyAssign\ConstFnc.h" />
+    <ClInclude Include="..\MyAssign\ConvexIndiffCurve.h" />
+    <ClInclude Include="..\MyAssign\ConvMeasure.h" />
+    <ClInclude Include="..\MyAssign\CurrentPathsAdder.h" />
+    <ClInclude Include="..\MyAssign\DAGraph.h" />
+    <ClInclude Include="..\MyAssign\DAGraphB.h" />
+    <ClInclude Include="..\MyAssign\DAGraphBWithStep.h" />
+    <ClInclude Include="..\MyAssign\DAGraphLUCE.h" />
+    <ClInclude Include="..\MyAssign\DAGraphNode.h" />
+    <ClInclude Include="..\MyAssign\DAGraphTapas.h" />
+    <ClInclude Include="..\MyAssign\DecoratedEqAlgo.h" />
+    <ClInclude Include="..\MyAssign\DefaultNetParser.h" />
+    <ClInclude Include="..\MyAssign\DefaultODMatrixParser.h" />
+    <ClInclude Include="..\MyAssign\Derivative.h" />
+    <ClInclude Include="..\MyAssign\DescDirection.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPath.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPathGP.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPathISP.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPathPE.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPathPG.h" />
+    <ClInclude Include="..\MyAssign\DescDirectionPathScaled.h" />
+    <ClInclude Include="..\MyAssign\DiffKMLNetOutput.h" />
+    <ClInclude Include="..\MyAssign\DominationByPathCost.h" />
+    <ClInclude Include="..\MyAssign\DominationByPathCostBase.h" />
+    <ClInclude Include="..\MyAssign\EqAlgo.h" />
+    <ClInclude Include="..\MyAssign\Error.h" />
+    <ClInclude Include="..\MyAssign\FileReader.h" />
+    <ClInclude Include="..\MyAssign\FileWriter.h" />
+    <ClInclude Include="..\MyAssign\FWAlgo.h" />
+    <ClInclude Include="..\MyAssign\IndiffCurve.h" />
+    <ClInclude Include="..\MyAssign\IndiffCurveContainer.h" />
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerConcaveCurve.h" />
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerConvexCurve.h" />
+    <ClInclude Include="..\MyAssign\IndiffCurveContainerLinearCurve.h" />
+    <ClInclude Include="..\MyAssign\InitialiseSolution.h" />
+    <ClInclude Include="..\MyAssign\KMLNetOutput.h" />
+    <ClInclude Include="..\MyAssign\KMLPlotTolls.h" />
+    <ClInclude Include="..\MyAssign\KMLSelectLink.h" />
+    <ClInclude Include="..\MyAssign\LabelCorrectingAl.h" />
+    <ClInclude Include="..\MyAssign\LabelCorrectingAlWithoutZonesCheck.h" />
+    <ClInclude Include="..\MyAssign\LabelSettingBSPBase.h" />
+    <ClInclude Include="..\MyAssign\LabelSettingOneSourceBSP.h" />
+    <ClInclude Include="..\MyAssign\LabelSettingPoint2PointBSP.h" />
+    <ClInclude Include="..\MyAssign\LatexNetOutput.h" />
+    <ClInclude Include="..\MyAssign\LatexNetOutputLinksExploredInBSP.h" />
+    <ClInclude Include="..\MyAssign\LazyShortestPath.h" />
+    <ClInclude Include="..\MyAssign\LexOptComparison.h" />
+    <ClInclude Include="..\MyAssign\LinearFnc.h" />
+    <ClInclude Include="..\MyAssign\LinearIndiffCurve.h" />
+    <ClInclude Include="..\MyAssign\LineSearch.h" />
+    <ClInclude Include="..\MyAssign\LinkFlows.h" />
+    <ClInclude Include="..\MyAssign\LinkFlowsBFW.h" />
+    <ClInclude Include="..\MyAssign\LinkFlowsCFW.h" />
+    <ClInclude Include="..\MyAssign\LinkFnc.h" />
+    <ClInclude Include="..\MyAssign\LinkFncContainer.h" />
+    <ClInclude Include="..\MyAssign\MaxDiffConvMeasure.h" />
+    <ClInclude Include="..\MyAssign\NetOutput.h" />
+    <ClInclude Include="..\MyAssign\NonAdditivePC.h" />
+    <ClInclude Include="..\MyAssign\NonAddParser.h" />
+    <ClInclude Include="..\MyAssign\NonAddShortestPath.h" />
+    <ClInclude Include="..\MyAssign\NonAddShortestPathForAON.h" />
+    <ClInclude Include="..\MyAssign\NonAddShortestPathWithLazyBSP.h" />
+    <ClInclude Include="..\MyAssign\NoPathsAdder.h" />
+    <ClInclude Include="..\MyAssign\ObjectManager.h" />
+    <ClInclude Include="..\MyAssign\ODMatrix.h" />
+    <ClInclude Include="..\MyAssign\ODSet.h" />
+    <ClInclude Include="..\MyAssign\ODSetGPApp3.h" />
+    <ClInclude Include="..\MyAssign\ODSetWithStep.h" />
+    <ClInclude Include="..\MyAssign\OneSourceBiObjShPath.h" />
+    <ClInclude Include="..\MyAssign\Origin.h" />
+    <ClInclude Include="..\MyAssign\OriginBasedAlgo.h" />
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoEQII.h" />
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoTapas.h" />
+    <ClInclude Include="..\MyAssign\OriginBasedAlgoTapasEqII.h" />
+    <ClInclude Include="..\MyAssign\OriginBush.h" />
+    <ClInclude Include="..\MyAssign\OriginBushB.h" />
+    <ClInclude Include="..\MyAssign\OriginBushLUCE.h" />
+    <ClInclude Include="..\MyAssign\OriginBushTapas.h" />
+    <ClInclude Include="..\MyAssign\OriginSet.h" />
+    <ClInclude Include="..\MyAssign\PairOD.h" />
+    <ClInclude Include="..\MyAssign\Params.h" />
+    <ClInclude Include="..\MyAssign\ParseIndiffCurves.h" />
+    <ClInclude Include="..\MyAssign\ParseParams.h" />
+    <ClInclude Include="..\MyAssign\ParseSpecificIndiffCurves.h" />
+    <ClInclude Include="..\MyAssign\PAS.h" />
+    <ClInclude Include="..\MyAssign\PASManager.h" />
+    <ClInclude Include="..\MyAssign\PASManagerWithStep.h" />
+    <ClInclude Include="..\MyAssign\PASWithStep.h" />
+    <ClInclude Include="..\MyAssign\Path.h" />
+    <ClInclude Include="..\MyAssign\PathAndDirection.h" />
+    <ClInclude Include="..\MyAssign\PathBasedAlgo.h" />
+    <ClInclude Include="..\MyAssign\PathBasedAlgoEqII.h" />
+    <ClInclude Include="..\MyAssign\PathBasedFlowMove.h" />
+    <ClInclude Include="..\MyAssign\PathBasedFlowMoveGP.h" />
+    <ClInclude Include="..\MyAssign\PathBasedFlowMovePE.h" />
+    <ClInclude Include="..\MyAssign\PathBasedFlowMoveWithStep.h" />
+    <ClInclude Include="..\MyAssign\PathCost.h" />
+    <ClInclude Include="..\MyAssign\PathsAdder.h" />
+    <ClInclude Include="..\MyAssign\PathSet.h" />
+    <ClInclude Include="..\MyAssign\PathSetParser.h" />
+    <ClInclude Include="..\MyAssign\PathSetPrinterToFile.h" />
+    <ClInclude Include="..\MyAssign\PieceWiseLinearIndiffCurve.h" />
+    <ClInclude Include="..\MyAssign\Point2PointBiObjShPath.h" />
+    <ClInclude Include="..\MyAssign\QuadApp.h" />
+    <ClInclude Include="..\MyAssign\RelGap.h" />
+    <ClInclude Include="..\MyAssign\ReverseNetwork.h" />
+    <ClInclude Include="..\MyAssign\ReverseNetworkWithTolls.h" />
+    <ClInclude Include="..\MyAssign\ShortestPath.h" />
+    <ClInclude Include="..\MyAssign\ShortestPathAdder.h" />
+    <ClInclude Include="..\MyAssign\ShortestPathWithRandomReturn.h" />
+    <ClInclude Include="..\MyAssign\ShortestPathWithRandomReturnWithFixedProbability.h" />
+    <ClInclude Include="..\MyAssign\StarLink.h" />
+    <ClInclude Include="..\MyAssign\StarLinkTolls.h" />
+    <ClInclude Include="..\MyAssign\StarLinkWithReverseLink.h" />
+    <ClInclude Include="..\MyAssign\StarLinkWithTolls.h" />
+    <ClInclude Include="..\MyAssign\StarNetwork.h" />
+    <ClInclude Include="..\MyAssign\StarNetworkWithTolls.h" />
+    <ClInclude Include="..\MyAssign\StarNode.h" />
+    <ClInclude Include="..\MyAssign\StepSize.h" />
+    <ClInclude Include="..\MyAssign\StepSizeAdd.h" />
+    <ClInclude Include="..\MyAssign\Timer.h" />
+    <ClInclude Include="..\MyAssign\TollsManagement.h" />
+    <ClInclude Include="..\MyAssign\UsedTypes.h" />
+    <ClInclude Include="..\MyAssign\Utils.h" />
+    <ClInclude Include="..\MyAssign\UtilsForDomination.h" />
+    <ClInclude Include="..\MyAssign\UtilsString.h" />
+    <ClInclude Include="Classes.h" />
+    <ClInclude Include="CommonHeaders.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="DefGloVar.h" />
+    <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="Parameters.h" />
+    <ClInclude Include="RandomFuncs.h" />
+    <ClInclude Include="TempleteFunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\MyAssign\0main.cpp" />
+    <ClCompile Include="..\MyAssign\AdditivePC.cpp" />
+    <ClCompile Include="..\MyAssign\AlgoDecorator.cpp" />
+    <ClCompile Include="..\MyAssign\AlgoDecoratorWriteLinks.cpp" />
+    <ClCompile Include="..\MyAssign\AONAssignment.cpp" />
+    <ClCompile Include="..\MyAssign\AONBushBased.cpp" />
+    <ClCompile Include="..\MyAssign\AONNonAdditive.cpp" />
+    <ClCompile Include="..\MyAssign\AONUsual.cpp" />
+    <ClCompile Include="..\MyAssign\Armijo.cpp" />
+    <ClCompile Include="..\MyAssign\Astar.cpp" />
+    <ClCompile Include="..\MyAssign\AstarWithoutZoneSkip.cpp" />
+    <ClCompile Include="..\MyAssign\BiDirectionalPoint2PointBSP.cpp" />
+    <ClCompile Include="..\MyAssign\BiObjLabel.cpp" />
+    <ClCompile Include="..\MyAssign\BiObjLabelContainer.cpp" />
+    <ClCompile Include="..\MyAssign\Bisection.cpp" />
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBackwardNet.cpp" />
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBSP.cpp" />
+    <ClCompile Include="..\MyAssign\BoundsCalculatorForBSPBase.cpp" />
+    <ClCompile Include="..\MyAssign\BoundsCalculatorWithTimeUpdate.cpp" />
+    <ClCompile Include="..\MyAssign\BprFnc.cpp" />
+    <ClCompile Include="..\MyAssign\ConcaveIndiffCurve.cpp" />
+    <ClCompile Include="..\MyAssign\ConstFnc.cpp" />
+    <ClCompile Include="..\MyAssign\ConvexIndiffCurve.cpp" />
+    <ClCompile Include="..\MyAssign\CurrentPathsAdder.cpp" />
+    <ClCompile Include="..\MyAssign\DAGraph.cpp" />
+    <ClCompile Include="..\MyAssign\DAGraphB.cpp" />
+    <ClCompile Include="..\MyAssign\DAGraphBWithStep.cpp" />
+    <ClCompile Include="..\MyAssign\DAGraphLUCE.cpp" />
+    <ClCompile Include="..\MyAssign\DAGraphTapas.cpp" />
+    <ClCompile Include="..\MyAssign\DefaultNetParser.cpp" />
+    <ClCompile Include="..\MyAssign\DefaultODMatrixParser.cpp" />
+    <ClCompile Include="..\MyAssign\Derivative.cpp" />
+    <ClCompile Include="..\MyAssign\DescDirectionPathGP.cpp" />
+    <ClCompile Include="..\MyAssign\DescDirectionPathISP.cpp" />
+    <ClCompile Include="..\MyAssign\DescDirectionPathPE.cpp" />
+    <ClCompile Include="..\MyAssign\DescDirectionPathPG.cpp" />
+    <ClCompile Include="..\MyAssign\DescDirectionPathScaled.cpp" />
+    <ClCompile Include="..\MyAssign\DiffKMLNetOutput.cpp" />
+    <ClCompile Include="..\MyAssign\DominationByPathCost.cpp" />
+    <ClCompile Include="..\MyAssign\DominationByPathCostBase.cpp" />
+    <ClCompile Include="..\MyAssign\EqAlgo.cpp" />
+    <ClCompile Include="..\MyAssign\Error.cpp" />
+    <ClCompile Include="..\MyAssign\FileReader.cpp" />
+    <ClCompile Include="..\MyAssign\FileWriter.cpp" />
+    <ClCompile Include="..\MyAssign\FWAlgo.cpp" />
+    <ClCompile Include="..\MyAssign\IndiffCurveContainer.cpp" />
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerConcaveCurve.cpp" />
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerConvexCurve.cpp" />
+    <ClCompile Include="..\MyAssign\IndiffCurveContainerLinearCurve.cpp" />
+    <ClCompile Include="..\MyAssign\KMLNetOutput.cpp" />
+    <ClCompile Include="..\MyAssign\KMLPlotTolls.cpp" />
+    <ClCompile Include="..\MyAssign\KMLSelectLink.cpp" />
+    <ClCompile Include="..\MyAssign\LabelCorrectingAl.cpp" />
+    <ClCompile Include="..\MyAssign\LabelCorrectingAlWithoutZonesCheck.cpp" />
+    <ClCompile Include="..\MyAssign\LabelSettingBSPBase.cpp" />
+    <ClCompile Include="..\MyAssign\LabelSettingOneSourceBSP.cpp" />
+    <ClCompile Include="..\MyAssign\LabelSettingPoint2PointBSP.cpp" />
+    <ClCompile Include="..\MyAssign\LatexNetOutput.cpp" />
+    <ClCompile Include="..\MyAssign\LatexNetOutputLinksExploredInBSP.cpp" />
+    <ClCompile Include="..\MyAssign\LazyShortestPath.cpp" />
+    <ClCompile Include="..\MyAssign\LexOptComparison.cpp" />
+    <ClCompile Include="..\MyAssign\LinearFnc.cpp" />
+    <ClCompile Include="..\MyAssign\LinearIndiffCurve.cpp" />
+    <ClCompile Include="..\MyAssign\LinkFlows.cpp" />
+    <ClCompile Include="..\MyAssign\LinkFlowsBFW.cpp" />
+    <ClCompile Include="..\MyAssign\LinkFlowsCFW.cpp" />
+    <ClCompile Include="..\MyAssign\LinkFncContainer.cpp" />
+    <ClCompile Include="..\MyAssign\MaxDiffConvMeasure.cpp" />
+    <ClCompile Include="..\MyAssign\NetOutput.cpp" />
+    <ClCompile Include="..\MyAssign\NonAdditivePC.cpp" />
+    <ClCompile Include="..\MyAssign\NonAddParser.cpp" />
+    <ClCompile Include="..\MyAssign\NonAddShortestPath.cpp" />
+    <ClCompile Include="..\MyAssign\NonAddShortestPathForAON.cpp" />
+    <ClCompile Include="..\MyAssign\NonAddShortestPathWithLazyBSP.cpp" />
+    <ClCompile Include="..\MyAssign\NoPathsAdder.cpp" />
+    <ClCompile Include="..\MyAssign\ObjectManager.cpp" />
+    <ClCompile Include="..\MyAssign\ODMatrix.cpp" />
+    <ClCompile Include="..\MyAssign\ODSet.cpp" />
+    <ClCompile Include="..\MyAssign\ODSetGPApp3.cpp" />
+    <ClCompile Include="..\MyAssign\ODSetWithStep.cpp" />
+    <ClCompile Include="..\MyAssign\Origin.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBasedAlgo.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoEQII.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoTapas.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBasedAlgoTapasEqII.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBush.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBushB.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBushLUCE.cpp" />
+    <ClCompile Include="..\MyAssign\OriginBushTapas.cpp" />
+    <ClCompile Include="..\MyAssign\OriginSet.cpp" />
+    <ClCompile Include="..\MyAssign\PairOD.cpp" />
+    <ClCompile Include="..\MyAssign\Params.cpp" />
+    <ClCompile Include="..\MyAssign\ParseIndiffCurves.cpp" />
+    <ClCompile Include="..\MyAssign\ParseParams.cpp" />
+    <ClCompile Include="..\MyAssign\ParseSpecificIndiffCurves.cpp" />
+    <ClCompile Include="..\MyAssign\PAS.cpp" />
+    <ClCompile Include="..\MyAssign\PASManager.cpp" />
+    <ClCompile Include="..\MyAssign\PASManagerWithStep.cpp" />
+    <ClCompile Include="..\MyAssign\PASWithStep.cpp" />
+    <ClCompile Include="..\MyAssign\Path.cpp" />
+    <ClCompile Include="..\MyAssign\PathAndDirection.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedAlgo.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedAlgoEqII.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedFlowMove.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedFlowMoveGP.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedFlowMovePE.cpp" />
+    <ClCompile Include="..\MyAssign\PathBasedFlowMoveWithStep.cpp" />
+    <ClCompile Include="..\MyAssign\PathSet.cpp" />
+    <ClCompile Include="..\MyAssign\PathSetParser.cpp" />
+    <ClCompile Include="..\MyAssign\PathSetPrinterToFile.cpp" />
+    <ClCompile Include="..\MyAssign\PieceWiseLinearIndiffCurve.cpp" />
+    <ClCompile Include="..\MyAssign\QuadApp.cpp" />
+    <ClCompile Include="..\MyAssign\RelGap.cpp" />
+    <ClCompile Include="..\MyAssign\ReverseNetwork.cpp" />
+    <ClCompile Include="..\MyAssign\ReverseNetworkWithTolls.cpp" />
+    <ClCompile Include="..\MyAssign\ShortestPathAdder.cpp" />
+    <ClCompile Include="..\MyAssign\ShortestPathWithRandomReturn.cpp" />
+    <ClCompile Include="..\MyAssign\ShortestPathWithRandomReturnWithFixedProbability.cpp" />
+    <ClCompile Include="..\MyAssign\StarLink.cpp" />
+    <ClCompile Include="..\MyAssign\StarLinkTolls.cpp" />
+    <ClCompile Include="..\MyAssign\StarLinkWithReverseLink.cpp" />
+    <ClCompile Include="..\MyAssign\StarLinkWithTolls.cpp" />
+    <ClCompile Include="..\MyAssign\StarNetwork.cpp" />
+    <ClCompile Include="..\MyAssign\StarNetworkWithTolls.cpp" />
+    <ClCompile Include="..\MyAssign\StarNode.cpp" />
+    <ClCompile Include="..\MyAssign\StepSize.cpp" />
+    <ClCompile Include="..\MyAssign\StepSizeAdd.cpp" />
+    <ClCompile Include="..\MyAssign\Timer.cpp" />
+    <ClCompile Include="..\MyAssign\TollsManagement.cpp" />
+    <ClCompile Include="..\MyAssign\Utils.cpp" />
+    <ClCompile Include="..\MyAssign\UtilsForDomination.cpp" />
+    <ClCompile Include="..\MyAssign\UtilsString.cpp" />
+    <ClCompile Include="AlgorithmFunc.cpp" />
+    <ClCompile Include="CloneSet.cpp" />
+    <ClCompile Include="CSAFuncs.cpp" />
+    <ClCompile Include="CSAMutation.cpp" />
+    <ClCompile Include="GAfuncs.cpp" />
+    <ClCompile Include="GraphFunc.cpp" />
+    <ClCompile Include="DebugMsg.cpp" />
+    <ClCompile Include="FW_UE.cpp" />
+    <ClCompile Include="InterFace.cpp" />
+    <ClCompile Include="LineSearchUingDirective.cpp" />
+    <ClCompile Include="LinkFuncs.cpp" />
+    <ClCompile Include="MainGA.cpp" />
+    <ClCompile Include="TestFuncs.cpp" />
+    <ClCompile Include="0_MainProgram.cpp" />
+    <ClCompile Include="ProbMatrixFuncs.cpp" />
+    <ClCompile Include="OpenCloseFiles.cpp" />
+    <ClCompile Include="OutPutGraph.cpp" />
+    <ClCompile Include="RandomValue.cpp" />
+    <ClCompile Include="ReadData.cpp" />
+    <ClCompile Include="MainCsa.cpp" />
+    <ClCompile Include="ChromFuncs.cpp" />
+    <ClCompile Include="ScanMedum.cpp" />
+    <ClCompile Include="SP.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D020EC3B-CC10-4074-9DB6-9080E09F2EA7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>NetworkResilience</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>VC</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;DEBUG;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,131 @@
+#include "CommonHeaders.h"
+#include <string>
+using namespace std;
+
+bool ReadLinkData(std::vector<LINK> &Links,
+	ifstream &fin) {
+	LINK tl;
+	int IDcount = 0;
+	//int tail, head;
+	//float t0, ca0;
+	//float BprAlph, BprBeta;
+	vector<string> fields;
+	string line;
+
+	while (getline(fin, line))
+	{
+		splitf(fields, line, ",");
+		if ( std::stoi(fields[0])<0)
+			continue;
+	/*	fscanf_s(fin, "%i %i %f %f %f %f",
+			&tail, &head, &t0, &ca0, &BprAlph, &BprBeta);*/
+		Links.push_back(tl);
+		Links.back().ID = IDcount;
+		Links.back().Tail = std::stoi(fields[0]);
+		Links.back().Head = std::stoi(fields[1]);
+		Links.back().T0 = std::stof(fields[2]);
+		Links.back().CaInput = std::stof(fields[3]);
+		Links.back().CaRevise = std::stof(fields[3]);
+		Links.back().AlphaBpr = std::stof(fields[4]);
+		Links.back().BetaBBpr = std::stof(fields[5]);
+		IDcount++;
+	}
+	return true;
+}
+
+bool ReadDemandData(vector<OD> &ODPairs,
+	ifstream &fin) {
+
+	int IDcount = 0;
+	//int or , de;
+	//float dd;
+	vector<string> fields;
+	string line;
+	OD tod;
+
+	while (getline(fin, line))
+	{
+		splitf(fields, line, ",");
+		if (std::stoi(fields[0])<0)
+			continue;
+
+		ODPairs.push_back(tod);
+		ODPairs.back().ID = IDcount;
+		ODPairs.back().Orign = std::stoi(fields[0]);
+		ODPairs.back().Dest = std::stoi(fields[1]);
+		ODPairs.back().Demand = std::stof(fields[2]);
+		IDcount++;
+	}
+
+	return true;
+}
+
+bool PrintModelParas(){
+
+	ofstream fout;
+	fout.open("c://GitCodes//ResiV2//OutPut//ModelPara.txt");
+
+	fout << "NumNodes" << "," << NumNodes << endl;
+	fout << "NumOD" << "," << NumOD << endl;
+	fout << "NumLinks" << "," << NumLinks << endl;
+	fout << "StopCriteria" << "," << StopCriteria << endl;
+	fout << "MaxNumSol" << "," << MaxNumSolEval << endl;
+
+	fout << "OneDimEsp" << "," << OneDimEsp << endl;
+	fout << "UEmaxIter" << "," << UEmaxIter << endl;
+	fout << "CsaNumPo" << "," << CsaNumPop << endl;
+	fout << "CsaCloneBeta" << "," << CsaCloneBeta << endl;
+	fout << "CsaRepRatio" << "," << CsaRepRatio << endl;
+
+	fout << "MaxCsaIter" << "," << MaxCsaIter << endl;
+	fout << "GANumPop" << "," << GANumPop << endl;
+	fout << "GANumChild" << "," << GANumChild << endl;
+	fout << "MaxGAIter" << "," << MaxGAIter << endl;
+	fout << "GaMutationRate" << "," << GaMutationRate << endl;
+	fout.close();
+
+	return true;
+}
+/*Read My own parameters for the algorithm */
+bool ReadModelParas(){
+	ifstream fin; fin.open("c://GitCodes//ResiV2//InPut//Para.txt");
+
+	std::string line;
+	std::vector<string> fields;
+	std::cout<<"Remark: NumOD, NumNode, NumLinks are set based manger network"<<endl;
+	while (getline(fin, line))
+	{
+		splitf(fields, line, ",");
+		if (fields.size() != 2) continue;
+		if (fields[0] == "OneDimEsp")	OneDimEsp = stof(fields[1]);
+		if (fields[0] == "UEeps")	UEeps = stof(fields[1]);
+		if (fields[0] == "UEmaxIter")	UEmaxIter = stoi(fields[1]);
+		if (fields[0] == "MaxNumSol")	MaxNumSolEval = stoi(fields[1]);
+		if (fields[0] == "StopCriteria")	StopCriteria = stoi(fields[1]);
+		if (fields[0] == "Network")  NetworkName = fields[1];
+		if (fields[0] == "WhereToWrite")
+		{
+			if (fields[1]._Equal("0")) WriteOutTo = screen;
+			if (fields[1]._Equal("1")) WriteOutTo = file;
+			if (fields[1]._Equal("2")) WriteOutTo = both;
+		}
+		if (fields[0] == "isWriteConverge")
+		{
+			if (fields[1]._Equal("0")) isWriteConverge = false;
+			if (fields[1]._Equal("1")) isWriteConverge = true;
+		}
+		if (fields[0] == "CsaNumPop")	CsaNumPop = stoi(fields[1]);
+		if (fields[0] == "CsaCloneBeta")	CsaCloneBeta = stof(fields[1]);
+		if (fields[0] == "CsaRepRatio")	CsaRepRatio = stof(fields[1]);
+		if (fields[0] == "MaxCsaIter")	MaxCsaIter = stoi(fields[1]);
+		if (fields[0] == "GANumPop")	GANumPop = stoi(fields[1]);
+		if (fields[0] == "GANumChild")	GANumChild = stoi(fields[1]);
+		if (fields[0] == "MaxGAIter")	MaxGAIter = stoi(fields[1]);
+		if (fields[0] == "GaMutationRate")	GaMutationRate = stof(fields[1]);
+		if (fields[0] == "TestIndex")  TestIndex = stoi(fields[1]);
+	}
+	fin.close();
+
+	return PrintModelParas();
+}
+
