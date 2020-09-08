@@ -5,7 +5,6 @@
 #include <map>
 #include <direct.h> // _getcwd
 #include "Parameters.h"
-#include "TempleteFunc.h"
 #include "GlobalVar.h"
 #include "..\MyAssign\ObjectManager.h"
 using namespace std;
@@ -195,7 +194,6 @@ public:
 	//~Algorithms();
 };
 
-
 class MyFiles
 {
 public:
@@ -205,15 +203,17 @@ public:
 	std::ofstream printModelPara;
 	std::ofstream printLog;
 	std::string rootfolder;
-	MyFiles() { set_root_folder(); IniFiles(); };
+	MyFiles() {
+		set_root_folder(); IniFiles();
+	}
 	~MyFiles()
 	{
 		printOD.close(); printLink.close(); printSummary.close();
 		printModelPara.close(); printLog.close();
-	};
+	}
 	void IniFiles()
 	{
-		printOD.open(rootfolder + "OutPut//" + "OD.txt", ios::trunc);
+		printOD.open(rootfolder + "OutPut//" + "OD.csv", ios::trunc);
 		printOD << "VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
 		printLink.open(rootfolder + "OutPut//" + "Link.csv", ios::trunc);
 		printLink << "VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
@@ -254,7 +254,5 @@ public:
 		rootfolder = rootfolder + "\\VC\\";
 	}
 };
-
 extern MyFiles mf;
-
 #endif

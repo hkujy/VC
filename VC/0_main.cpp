@@ -2,20 +2,14 @@
 #include "DefGloVar.h"
 
 using namespace std;
-MyFiles mf;
 
 int IniInterFace(ObjectManager &manager, GRAPH &MyNet);
 bool ReadModelParas();
-void TestEnumerate(ObjectManager &manager, GRAPH &BaseGraph);
-void OutputSummary(vector<CHROME> &BestSol, GRAPH &Graph, vector<double> &CpuTime, ObjectManager &manager);
-//int pmain() 
 
 int main(int argc, char *argv[])
 {
 
-// step 0: set root folder and clean files
-	//OpenAndCleanFiles();
-	// step. 1 read para
+	// Step. 1: Read para
 
 	if (!ReadModelParas()) cerr << "Read Model Fails" << endl;// Must before
 #pragma region ReadManagerNet
@@ -65,27 +59,6 @@ int main(int argc, char *argv[])
 		// only carry out the UE assignment
 		VunSol.EvaluateSol(MyGraph, manager);
 	}
-	//vector<CHROME> BestSol;
-	//vector<double> CpuTimeVec;
-	//vector<double> BestSolSummary;
-	//switch (TestIndex)
-	//{
-	//case 0:
-	//	TestEnumerate(manager, MyGraph);
-	//	StopCriteria = 1;
-	//	BestSol.clear();
-	//	CpuTimeVec.clear();
-	//	//ErrMsg = CsaTestMain(MyGraph, BestSol, CpuTimeVec, manager);
-	//	OutputSummary(BestSol, MyGraph, CpuTimeVec, manager);
-	//	cout << "Complete CSA Criteria " << StopCriteria << endl;
-	//	break;
-	//case 1:
-	//	TestCSAandGA(manager,MyGraph);
-	//	break;
-	//default:
-	//	break;
-	//}
-
 	cout << "Cheers" << endl;
 	return 0;
 

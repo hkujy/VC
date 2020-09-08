@@ -1,9 +1,0 @@
-NumNodes,8
-NumOD,56
-NumLinks,26
-OneDimEsp,0.001
-UEeps,0.001
-UEmaxIter,500
-MaxNumSol,5000
-StopCriteria,0
-

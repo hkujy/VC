@@ -13,21 +13,12 @@ double  OneDimEsp;
 double  UEeps;
 int	   UEmaxIter;
 int TestIndex;
-std::default_random_engine GenRan;
 int MaxCsaIter;
 //int ModelIndex;
-std::ofstream  AssertLog;
-int CsaNumPop;
-double CsaCloneBeta;
-double CsaRepRatio;
-int MaxGAIter;
-int GANumPop;
-int GANumChild;
 OutPutChanal WriteOutTo;
 int MaxNumSolEval;
-int StopCriteria;
-int CSACloneMethod;
-double GaMutationRate;
 bool isWriteConverge;
 std::string NetworkName;
+MyFiles mf;
+
 #endif

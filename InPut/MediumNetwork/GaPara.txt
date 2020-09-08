@@ -1,3 +1,0 @@
-GANumPop,20
-GANumChild,20
-MaxGAIter,50

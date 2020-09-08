@@ -14,4 +14,5 @@ enum AlgorithmType
 	CSA, GA, BruteForce
 };
 
+
 #endif // !PARA

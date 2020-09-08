@@ -1,6 +1,7 @@
 #include "CommonHeaders.h"
 #include <assert.h>
 #include <math.h>       /* pow */
+#include "TempleteFunc.h"
 using namespace std;
 
 CHROME::CHROME(){
@@ -42,20 +43,7 @@ void CHROME::IniCap(GRAPH &_Graph, ObjectManager &manager) {
 		_Graph.Links.at(LinkiD).IniCap();
 		manager.getNet()->getLink(LinkiD)->getLinkFnc()->setCapacity(_Graph.Links.at(LinkiD).CaInput);
 	}
-
-	//for (int i = 0; i < this->VulnerableLinks.size(); i++)
-	//{
-	//	int link_ID = VulnerableLinks.at(i);
-	//	cout << "after ini cap link=" << i << ", cap=" << manager.getNet()->getLink(link_ID)->getLinkFnc()->getCapacity() << endl;
-	//	//manager.getNet()->getLink(LinkId)->getLinkFnc()->setCapacity(Graph.Links.at(LinkId).CaRevise);
-
-
-	//}
-
-
-
 }
-
 double CHROME::getSolProb(){
 	double r = 1.0;
 	for (auto p = this->VulnerableLinkDofProb.begin(); p != this->VulnerableLinkDofProb.end(); p++)
@@ -64,7 +52,6 @@ double CHROME::getSolProb(){
 	}
 	return r;
 }
-
 
 void CHROME::EvaluateSol(GRAPH &Graph, ObjectManager &manager)
 {
@@ -77,7 +64,6 @@ void CHROME::EvaluateSol(GRAPH &Graph, ObjectManager &manager)
 	//assert(Graph.PrintLinks(AssertLog));
 	this->IniCap(Graph, manager); // after revising the capacity and change it back
 	//Graph.EaluteGraph(manager, manager.getEqAlgo());
-
 }
 void CHROME::EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &manager)
 {
@@ -100,7 +86,6 @@ void CHROME::EvaluateSol(GRAPH &Graph, const double BaseUNPM, ObjectManager &man
 	this->IniCap(Graph,manager); // after revising the capacity and change it back
 	
 	//Graph.EvaluteGraph(manager, manager.getEqAlgo());
-
 	this->UNPM = Graph.UNPM;
 	this->TotalCost = Graph.TotalSystemCost;
 	this->ImpactValue = (BaseUNPM - this->UNPM) / BaseUNPM;

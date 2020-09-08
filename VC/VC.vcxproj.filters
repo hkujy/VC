@@ -32,13 +32,7 @@
     <ClInclude Include="Parameters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TempleteFunc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DefGloVar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RandomFuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\MyAssign\AddHook.h">
@@ -497,15 +491,12 @@
     <ClInclude Include="..\MyAssign\UtilsString.h">
       <Filter>AssignHeader</Filter>
     </ClInclude>
+    <ClInclude Include="TempleteFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ReadData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenCloseFiles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DebugMsg.cpp">
@@ -518,9 +509,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LinkFuncs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OutPutGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\MyAssign\UtilsString.cpp">
@@ -920,12 +908,6 @@
       <Filter>AssignSource</Filter>
     </ClCompile>
     <ClCompile Include="InterFace.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AlgorithmFunc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestFuncs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="0_main.cpp">

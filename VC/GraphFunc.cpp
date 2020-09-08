@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <tuple>
 #include <math.h>       /* pow */
+#include "TempleteFunc.h"
 using namespace std;
 
 
@@ -15,63 +16,63 @@ GRAPH::GRAPH(){
 	{
 		cerr << "Input node should be known before construct graph" << endl;
 	}
-	this->MinPathPredLink
-		= Create2DAarray<int>(NumNodes + 1, NumNodes + 1);
-	for (int i = 0; i < NumNodes + 1; i++)
-	{
-		for (int j = 0; j < NumNodes + 1; j++)
-		{
-			this->MinPathPredLink[i][j] = InvaildInt;
-		}
-	}
+	//this->MinPathPredLink
+	//	= Create2DAarray<int>(NumNodes + 1, NumNodes + 1);
+	//for (int i = 0; i < NumNodes + 1; i++)
+	//{
+	//	for (int j = 0; j < NumNodes + 1; j++)
+	//	{
+	//		this->MinPathPredLink[i][j] = InvaildInt;
+	//	}
+	//}
 	this->NowVulLink = -1;
 
 };
 GRAPH::~GRAPH(){
-	Free2DArrey<int>(this->MinPathPredLink, NumNodes + 1);
+	//Free2DArrey<int>(this->MinPathPredLink, NumNodes + 1);
 	OdPairs.clear(); Links.clear(); Nodes.clear(); OriginSet.clear();
 	VulnerableLinks.clear(); VulnerableLinksDof.clear();
 };
 
-int GRAPH::FindMinCostRoutes(){
-
-	try{
-		int StatusMsg;
-		std::vector<double> Lable;
-		for (auto o = this->OriginSet.begin(); o != this->OriginSet.end(); o++)
-		{
-			int Orig = o->Onode;
-			StatusMsg = this->SP(o->Onode, Lable);// shortest path
-			assert(StatusMsg);
-			//printf("Find min tree for Onode = %d \n", Orig);
-			//Minpath(Orig, MinPathPredLink[Orig], Lable, Nodes, Links, ModeType);
-			for (auto d = o->ODset.begin(); d != o->ODset.end(); d++)
-			{
-				int Dest = (*d)->Dest;
-#ifdef __DEBUG__ 
-				if (isnan(Lable[Dest])) DEBUG("Od Pair %d,mincost is NaN", *d);
-#endif	
-				this->OdPairs.at((*d)->ID).MinCost = Lable[Dest];
-
-				//ODPairs.at(*d).MinCost.at(ModeType) = Lable[Dest];
-				if (this->OdPairs.at((*d)->ID).MinCost < InvalidMinCost)
-				{
-					this->OdPairs.at((*d)->ID).isConnected = true;
-				}
-				/*if (ODPairs.at(*d).MinCost.at(ModeType) < InvalidMinCost)
-					ODPairs.at(*d).isConnected = true;*/
-			}
-		}
-		return 1;
-	}
-
-	catch (exception& e)
-	{
-		TRACE("FindMinCostRoutes %s", e.what());
-		return 0;
-	}
-}
-
+//int GRAPH::FindMinCostRoutes(){
+//
+//	try{
+//		int StatusMsg;
+//		std::vector<double> Lable;
+//		for (auto o = this->OriginSet.begin(); o != this->OriginSet.end(); o++)
+//		{
+//			int Orig = o->Onode;
+//			StatusMsg = this->SP(o->Onode, Lable);// shortest path
+//			assert(StatusMsg);
+//			//printf("Find min tree for Onode = %d \n", Orig);
+//			//Minpath(Orig, MinPathPredLink[Orig], Lable, Nodes, Links, ModeType);
+//			for (auto d = o->ODset.begin(); d != o->ODset.end(); d++)
+//			{
+//				int Dest = (*d)->Dest;
+//#ifdef __DEBUG__ 
+//				if (isnan(Lable[Dest])) DEBUG("Od Pair %d,mincost is NaN", *d);
+//#endif	
+//				this->OdPairs.at((*d)->ID).MinCost = Lable[Dest];
+//
+//				//ODPairs.at(*d).MinCost.at(ModeType) = Lable[Dest];
+//				if (this->OdPairs.at((*d)->ID).MinCost < InvalidMinCost)
+//				{
+//					this->OdPairs.at((*d)->ID).isConnected = true;
+//				}
+//				/*if (ODPairs.at(*d).MinCost.at(ModeType) < InvalidMinCost)
+//					ODPairs.at(*d).isConnected = true;*/
+//			}
+//		}
+//		return 1;
+//	}
+//
+//	catch (exception& e)
+//	{
+//		TRACE("FindMinCostRoutes %s", e.what());
+//		return 0;
+//	}
+//}
+//
 void GRAPH::CreateOriginSet()
 {
 	OriginBasedOD Oset;
@@ -228,41 +229,41 @@ int GRAPH::PrintOD(std::ofstream &fout)
 	}
 
 }
-
-int GRAPH::PrintSp(int Orign, int Dest, std::ofstream &fout)
-{
-	try{
-		vector<int> Path;
-		for (auto o = this->OriginSet.begin(); o != this->OriginSet.end(); o++)
-		{
-			for (auto od = o->ODset.begin(); od != o->ODset.end(); od++)
-			{
-				if ((*od)->Orign == Orign && Dest == (*od)->Dest)
-				{
-					Path.clear();
-					int CurrentNode = (*od)->Dest;
-					while (CurrentNode != (*od)->Orign)
-					{
-						int k = this->MinPathPredLink[(*od)->Orign][CurrentNode];
-						Path.push_back(k);
-						CurrentNode = this->Links.at(k).Tail;
-					}
-					for (auto i = Path.rbegin(); i != Path.rend(); i++)
-					{
-						fout << *i << ",";
-					}
-					fout << endl;
-				}
-			}
-		}
-		return 1;
-	}
-	catch (exception &e)
-	{
-		TRACE("%s", e);
-		return 0;
-	}
-}
+//
+//int GRAPH::PrintSp(int Orign, int Dest, std::ofstream &fout)
+//{
+//	try{
+//		vector<int> Path;
+//		for (auto o = this->OriginSet.begin(); o != this->OriginSet.end(); o++)
+//		{
+//			for (auto od = o->ODset.begin(); od != o->ODset.end(); od++)
+//			{
+//				if ((*od)->Orign == Orign && Dest == (*od)->Dest)
+//				{
+//					Path.clear();
+//					int CurrentNode = (*od)->Dest;
+//					while (CurrentNode != (*od)->Orign)
+//					{
+//						int k = this->MinPathPredLink[(*od)->Orign][CurrentNode];
+//						Path.push_back(k);
+//						CurrentNode = this->Links.at(k).Tail;
+//					}
+//					for (auto i = Path.rbegin(); i != Path.rend(); i++)
+//					{
+//						fout << *i << ",";
+//					}
+//					fout << endl;
+//				}
+//			}
+//		}
+//		return 1;
+//	}
+//	catch (exception &e)
+//	{
+//		TRACE("%s", e);
+//		return 0;
+//	}
+//}
 
 void GRAPH::PrintGraph(ObjectManager &Man)
 {

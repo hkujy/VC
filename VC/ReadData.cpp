@@ -1,5 +1,6 @@
 #include "CommonHeaders.h"
 #include <string>
+#include "TempleteFunc.h"
 using namespace std;
 
 bool ReadLinkData(std::vector<LINK> &Links,
@@ -68,10 +69,6 @@ bool PrintModelParas(){
 	fout << "NumNodes" << "," << NumNodes << endl;
 	fout << "NumOD" << "," << NumOD << endl;
 	fout << "NumLinks" << "," << NumLinks << endl;
-	fout << "StopCriteria" << "," << StopCriteria << endl;
-	fout << "MaxNumSol" << "," << MaxNumSolEval << endl;
-	fout << "OneDimEsp" << "," << OneDimEsp << endl;
-	fout << "UEmaxIter" << "," << UEmaxIter << endl;
 	fout.close();
 
 	return true;
@@ -89,10 +86,7 @@ bool ReadModelParas(){
 	{
 		splitf(fields, line, ",");
 		if (fields.size() != 2) continue;
-		if (fields[0] == "OneDimEsp")	OneDimEsp = stof(fields[1]);
 		if (fields[0] == "UEeps")	UEeps = stof(fields[1]);
-		if (fields[0] == "UEmaxIter")	UEmaxIter = stoi(fields[1]);
-		if (fields[0] == "MaxNumSol")	MaxNumSolEval = stoi(fields[1]);
 		if (fields[0] == "Network")  NetworkName = fields[1];
 		if (fields[0] == "WhereToWrite")
 		{

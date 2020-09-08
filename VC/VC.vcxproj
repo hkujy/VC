@@ -177,7 +177,6 @@
     <ClInclude Include="DefGloVar.h" />
     <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="Parameters.h" />
-    <ClInclude Include="RandomFuncs.h" />
     <ClInclude Include="TempleteFunc.h" />
   </ItemGroup>
   <ItemGroup>
@@ -313,18 +312,13 @@
     <ClCompile Include="..\MyAssign\Utils.cpp" />
     <ClCompile Include="..\MyAssign\UtilsForDomination.cpp" />
     <ClCompile Include="..\MyAssign\UtilsString.cpp" />
-    <ClCompile Include="AlgorithmFunc.cpp" />
     <ClCompile Include="GraphFunc.cpp" />
     <ClCompile Include="DebugMsg.cpp" />
     <ClCompile Include="InterFace.cpp" />
     <ClCompile Include="LinkFuncs.cpp" />
-    <ClCompile Include="TestFuncs.cpp" />
     <ClCompile Include="0_main.cpp" />
-    <ClCompile Include="OpenCloseFiles.cpp" />
-    <ClCompile Include="OutPutGraph.cpp" />
     <ClCompile Include="ReadData.cpp" />
     <ClCompile Include="ChromFuncs.cpp" />
-    <ClCompile Include="SP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

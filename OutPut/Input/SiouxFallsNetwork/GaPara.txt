@@ -1,0 +1,4 @@
+GANumPop,10
+GANumChild,10
+MaxGAIter,10
+GaMutationRate,0.1
