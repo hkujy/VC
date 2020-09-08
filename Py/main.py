@@ -16,7 +16,9 @@ if __name__== "__main__":
     mp = mypara.MyParaClass()
     mp.get_root_folder()
     print("root folder is {0}".format(mp.root_folder))
-    setTest.test_remove_link(mp,_num_links = 10)
+    # setTest.test_remove_link(mp,_num_links = 10)
+    # set _numlink = -1 is to compute all the links 
+    setTest.test_remove_link(mp,_num_links = -1)   
 
 
 

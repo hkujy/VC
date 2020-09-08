@@ -56,7 +56,8 @@ class PathSet : public InitialiseSolution {
 		/** Prints path sets on screen.
 		*/
 		void print();
-		
+
+		std::vector<ODSet*> getodSetList_() { return odSetList_; }
 	private:
 		std::vector<ODSet*> odSetList_;
 		const int size_;

@@ -1,12 +1,15 @@
+
+#include "MyGlobal.h"
 #include "LabelCorrectingAl.h"
 #include "StarNetwork.h"
 #include "StarNode.h"
-
 #include <stdlib.h>
 #include <cassert>
 #include <iostream>
 #include <limits>
 #include <sstream>
+
+bool OriginVersionForbidReturn2Zone = false;
 
 LabelCorrectingAl::LabelCorrectingAl(StarNetwork *netPointer) : 
 							netPointer_(netPointer), 
@@ -73,14 +76,34 @@ void LabelCorrectingAl::calculate(int originIndex){
 		curNode = netPointer_->beginNode(topNode);
 		distToNextNode = 0;
 		nextNodeIndex = -1;
-				
+		//if (originIndex == 1)
+		//{
+		//	std::cout << "curNode=" << curNode->getIndex() << ", tonod=" << topNode << std::endl;
+		//	if (curNode->getIndex() == 0 && topNode == 0)
+		//	{
+		//		std::cout << "wtf" << std::endl;
+		//	}
+		//}
 		if (proceed(curNode, topNode)) { // special condition for zone nodes
+	/*		if (originIndex == 1)
+			{
+				std::cout << "proceed" << std::endl;
+			}*/
 			for (nextLink = netPointer_->beginLink(); nextLink != NULL; nextLink = netPointer_->getNextLink()) {
 				
 				nextNodeIndex = nextLink->getNodeToIndex();
+	/*			if (originIndex == 1)
+				{
+					std::cout << "nextnode=" << nextNodeIndex << ", Dist=" << distToNextNode << ", time=" << nextLink->getTime() << std::endl;
+				}*/
 				
 				distToNextNode = nodeList_[topNode].dist + nextLink->getTime(); 
 				if ( distToNextNode < nodeList_[nextNodeIndex].dist) { 
+					//if (originIndex == 1)
+					//{
+					//	std::cout << "proceed"<<std::endl;
+					//}
+
 					nodeList_[nextNodeIndex].dist = distToNextNode;
 					nodeList_[nextNodeIndex].linkIndex = nextLink->getIndex(); 
 					if (sequenceList[nextNodeIndex] < 0) { // nextNode is not on sequenceList
@@ -111,5 +134,20 @@ void LabelCorrectingAl::calculate(int originIndex){
 };
 
 bool LabelCorrectingAl::proceed(StarNode* curNode, int topNode) const {
-	return ((curNode != NULL) && (!curNode->getIsZone() || (topNode == originIndex_)));
+
+	//change by Jy:2020 -Sep-08
+	if (OriginVersionForbidReturn2Zone)
+	{
+		return ((curNode != NULL) && (!curNode->getIsZone() || (topNode == originIndex_)));
+	}
+	else if (!OriginVersionForbidReturn2Zone)
+	{
+		return ((curNode != NULL));
+	}
+	else
+	{
+		std::cout << "WTF: this should not be used" << std::endl;
+		return ((curNode != NULL));
+	}
+
 };

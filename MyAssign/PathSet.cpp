@@ -69,6 +69,16 @@ PathSet::~PathSet(){
 };
 
 void PathSet::initialise(){
+
+	/*add by Jy 8-Sep-2020*/
+	for (int w = 0; w < getodSetList_().size(); w++)
+	{
+		if (getodSetList_()[w]->getAllPath().size() > 0)
+		{
+			getodSetList_()[w]->clearAllPaths();
+		}
+	}
+	/*****************************************************/
 	aon_->execute(this);
 	for (ConstODSetIterator odSetIt = begin(); odSetIt != end(); ++odSetIt){
 		(*odSetIt)->projectPathFlowOnLinks();

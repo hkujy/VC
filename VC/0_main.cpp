@@ -46,9 +46,9 @@ int main(int argc, char *argv[])
 	MyGraph.EvaluteGraph(manager, manager.getEqAlgo());
 	//system("PAUSE");
 
-	CHROME VunSol;
 	for (int l = 0; l < MyGraph.VulnerableLinks.size(); l++)
 	{
+		CHROME VunSol;
 		cout << "link = " << MyGraph.VulnerableLinks.at(l) << ",";
 		cout << "Dof = " << MyGraph.VulnerableLinksDof[l].at(0).first << ",";
 		cout << "Pro = " << MyGraph.VulnerableLinksDof[l].at(0).second << endl;
@@ -56,7 +56,8 @@ int main(int argc, char *argv[])
 		VunSol.VulnerableLinkDof.push_back(MyGraph.VulnerableLinksDof[l].at(0).first);
 		VunSol.VulnerableLinkDofProb.push_back(MyGraph.VulnerableLinksDof[l].at(0).second);
 		MyGraph.NowVulLink = MyGraph.VulnerableLinks.at(l);
-		// only carry out the UE assignment
+		manager.setAlgoNull();
+		//manager.getEqAlgo() = NULL;
 		VunSol.EvaluateSol(MyGraph, manager);
 	}
 	cout << "Cheers" << endl;

@@ -1,3 +1,0 @@
-NumNodes,0
-NumOD,0
-NumLinks,0

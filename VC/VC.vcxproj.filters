@@ -494,6 +494,9 @@
     <ClInclude Include="TempleteFunc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyGlobal.h">
+      <Filter>AssignHeader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ReadData.cpp">

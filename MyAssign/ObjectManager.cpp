@@ -498,6 +498,7 @@ PathSet* ObjectManager::getPathSet(){
 		
 DecoratedEqAlgo* ObjectManager::getEqAlgo(const std::string& dirConv,
 							const std::string& dirFlows){
+	
 	if (algo_ == NULL) {
 		std::cout << "Creating algo" << std::endl;
 		std::string tmp =  params_->getParamWoSpaces("ALGORITHM");

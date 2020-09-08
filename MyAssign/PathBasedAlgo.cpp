@@ -36,7 +36,12 @@ void PathBasedAlgo::initialise(){
 };
 
 void PathBasedAlgo::performOneIteration(){
+	//int counter = 0;
 	for (ConstODSetIterator odSetIt = pathSet_->begin(); odSetIt != pathSet_->end(); ++odSetIt){
+		//std::cout << counter << std::endl;
+		//if (counter == 2)
+			//std::cout << "wtf" << std::endl;
 		mainLoop(*odSetIt);
+		//counter++;
 	}
 };

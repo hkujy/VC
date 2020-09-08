@@ -176,6 +176,7 @@
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DefGloVar.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="MyGlobal.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="TempleteFunc.h" />
   </ItemGroup>

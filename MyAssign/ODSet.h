@@ -87,6 +87,18 @@ class ODSet {
 		
 		void print() const;
 		
+		/*The following functions are added by Jy 8-Sep-2020*/
+		std::list<Path*> getAllPath() { return allPaths_; }
+		void clearAllPaths()
+		{
+			for (std::list<Path*>::iterator it = allPaths_.begin(); it != allPaths_.end(); ++it)
+			{
+			    *it=nullptr;
+			}
+			allPaths_.clear();
+		}
+		/********************************************************/
+
 	protected:
 		
 		/** Does nothing by default - it is a hook method for ODSetWithStep. 

@@ -87,6 +87,7 @@ class StarLink {
 		*/
 		FPType getDerivative() const;
 		void setInitTime(FPType initime) { time_ = initime; }
+		void setTime(FPType _nt) { time_ = _nt; }
 		void setInitFlow() { flow_ = 0; }
 		
 	private:

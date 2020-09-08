@@ -108,6 +108,7 @@ class ObjectManager {
 
 
 		LinkFlows * getLinkFlows() { return linkFlows_; }
+		void setAlgoNull() { algo_ = NULL; }
 
 	private:
 		Params *params_;

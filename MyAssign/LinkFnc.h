@@ -80,7 +80,8 @@ class LinkFnc {
 		virtual FPType getAlpha() const { return 0.0; };
 		virtual FPType getPower() const { return 0.0; };
 		virtual FPType getFreeFlowTime() const { return 0.0; };
-	
+		virtual void setFreeFlowTime(FPType _val) {  };
+
 	protected:
 		LinkFnc(){};
 };

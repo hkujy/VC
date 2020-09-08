@@ -55,6 +55,11 @@ void BprFnc::setCapacity(FPType set_cap)
 	this->capacity_ = set_cap;
 }
 
+void BprFnc::setFreeFlowTime(FPType _val)
+{
+	this->freeFlow_ = _val;
+}
+
 
 FncType BprFnc::getType(){
 	return BPRFNC;

@@ -34,6 +34,7 @@ class BprFnc : public LinkFnc {
 
 		virtual FPType getCapacity();
 		void setCapacity(FPType set_cap);
+		void setFreeFlowTime(FPType _val);
 		FPType getAlpha() const { return B_; }
 		FPType getPower() const { return power_; }
 		FPType getFreeFlowTime() const { return freeFlow_; }
@@ -44,10 +45,10 @@ class BprFnc : public LinkFnc {
 	
 	private:
 	
-		const FPType freeFlow_;
-		const FPType B_;
-		FPType capacity_;
 		const FPType power_;
+		const FPType B_;
+		FPType freeFlow_;
+		FPType capacity_;
 
 };
 

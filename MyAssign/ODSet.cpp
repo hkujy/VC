@@ -151,7 +151,11 @@ void ODSet::removeUnusedPaths(){
 		if (path->getFlow() <= zeroFlow_) {
 			delete path;
 			it = allPaths_.erase(it);
-			--it;
+			// the following if then condition is added by Jy 8-Sep-2020
+			if (it != allPaths_.begin())
+			{
+				--it;
+			}
 		}
 	}
 };
