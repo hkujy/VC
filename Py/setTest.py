@@ -46,8 +46,10 @@ def one_test(mp:mypara.MyParaClass, _name="try"):
     # step 3: run the test
     if mypara.is_run_exe:
         if mypara.is_debug_exe:
+            print("Start to run debug mode")
             os.system(mp.debug_exe) 
         else:
+            print("Start to run release mode")
             os.system(mp.release_exe)
 
     # step 4: read case data 
