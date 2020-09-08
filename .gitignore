@@ -5,6 +5,8 @@
 OutPut/*.txt
 
 .vs/VC/v15/Browse.VC.opendb
+.vs/VC/v15/Solution.VC.db
+.vs/config/applicationhost.config
 
 # User-specific files
 *.suo
