@@ -1,10 +1,10 @@
 import os
 
 
-# is_run_exe = True
-is_run_exe = False
-# is_debug_exe = True
-is_debug_exe = False
+is_run_exe = True
+# is_run_exe = False
+is_debug_exe = True
+# is_debug_exe = False
 
 
 class MyParaClass:
@@ -13,7 +13,7 @@ class MyParaClass:
         self.para_dict = {
             "TestIndex":1,     # 0, enueration, 1 CSA and GA
             "OneDimEsp":0.0000001,
-            "UEeps":0.01,
+            "UEeps":0.001,
             "Network":"SiouxFalls",
             "isWriteConverge":0, # falase, do not write UE converge on screen
             "WhereToWrite":1   # 0, screen, 1, file, 2, both

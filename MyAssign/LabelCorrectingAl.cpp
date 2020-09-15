@@ -1,5 +1,5 @@
 
-#include "MyGlobal.h"
+#include "0MyGlobal.h"
 #include "LabelCorrectingAl.h"
 #include "StarNetwork.h"
 #include "StarNode.h"
@@ -9,7 +9,6 @@
 #include <limits>
 #include <sstream>
 
-bool OriginVersionForbidReturn2Zone = false;
 
 LabelCorrectingAl::LabelCorrectingAl(StarNetwork *netPointer) : 
 							netPointer_(netPointer), 
@@ -98,12 +97,12 @@ void LabelCorrectingAl::calculate(int originIndex){
 				}*/
 				
 				distToNextNode = nodeList_[topNode].dist + nextLink->getTime(); 
+				std::cout << "wtf" << nodeList_[nextNodeIndex].dist << std ::endl;
 				if ( distToNextNode < nodeList_[nextNodeIndex].dist) { 
 					//if (originIndex == 1)
 					//{
 					//	std::cout << "proceed"<<std::endl;
 					//}
-
 					nodeList_[nextNodeIndex].dist = distToNextNode;
 					nodeList_[nextNodeIndex].linkIndex = nextLink->getIndex(); 
 					if (sequenceList[nextNodeIndex] < 0) { // nextNode is not on sequenceList
@@ -133,6 +132,11 @@ void LabelCorrectingAl::calculate(int originIndex){
 	delete[] sequenceList;
 };
 
+//
+//bool LabelCorrectingAl::proceed(StarNode* curNode, int topNode) const {
+//	return ((curNode != NULL) && (!curNode->getIsZone() || (topNode == originIndex_)));
+//};
+//
 bool LabelCorrectingAl::proceed(StarNode* curNode, int topNode) const {
 
 	//change by Jy:2020 -Sep-08

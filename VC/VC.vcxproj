@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\MyAssign\0MyGlobal.h" />
     <ClInclude Include="..\MyAssign\AddHook.h" />
     <ClInclude Include="..\MyAssign\AddHookScreenAndStore.h" />
     <ClInclude Include="..\MyAssign\AddHookScreenOut.h" />
@@ -176,7 +177,6 @@
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DefGloVar.h" />
     <ClInclude Include="GlobalVar.h" />
-    <ClInclude Include="MyGlobal.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="TempleteFunc.h" />
   </ItemGroup>
