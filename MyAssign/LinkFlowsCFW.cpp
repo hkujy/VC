@@ -25,7 +25,8 @@ LinkFlowsCFW::~LinkFlowsCFW(){
 void LinkFlowsCFW::initialise()
 {
 		//change 21-OCT-2019 by Jy
-		nbCalls_ = 0.0;	
+		// change nbCalls_ = 0, 27-Sep-2020 by Jy
+		nbCalls_ = 0;	
 		this->stepPrevPrev_ = 0.0;
 		this->stepPrev_ = 0.0;
 		/*********************/

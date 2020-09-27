@@ -329,7 +329,7 @@ int GRAPH::PrintOD(std::ofstream &fout)
 //	}
 //}
 
-void GRAPH::PrintGraph(ObjectManager &Man)
+void GRAPH::PrintGraph(ObjectManager &Man,std::ofstream &OD_out,std::ofstream &Link_out)
 {
 	// first: print OD pairs
 	for (ConstOriginIterator it = Man.getODMatrix()->begin(); it != Man.getODMatrix()->end(); ++it)
@@ -338,35 +338,34 @@ void GRAPH::PrintGraph(ObjectManager &Man)
 		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
 		{
 			PairOD* dest = *destIt;
-			mf.printDisruptOD << NowVulLink << ",";
-			mf.printDisruptOD << origin->getIndex() << ",";
-			mf.printDisruptOD << dest->getIndex() << ",";
-			mf.printDisruptOD << dest->getODIndex() << ",";
-			mf.printDisruptOD << dest->getDemand() << ",";
-			mf.printDisruptOD << dest->getODminCost();
-			mf.printDisruptOD << endl;
+			OD_out<< NowVulLink << ",";
+			OD_out << origin->getIndex() << ",";
+			OD_out << dest->getIndex() << ",";
+			OD_out << dest->getODIndex() << ",";
+			OD_out << dest->getDemand() << ",";
+			OD_out<< dest->getODminCost();
+			OD_out << endl;
 		}
 	}
-	mf.printDisruptOD.flush();
+	OD_out.flush();
 
 	// Second: print links
 
-
 	for (auto l = Man.getNet()->beginOnlyLink(); l != NULL; l = Man.getNet()->getNextOnlyLink())
 	{
-		mf.printDIsruptLink << NowVulLink << ",";
-		mf.printDIsruptLink << l->getIndex() << ",";
-		mf.printDIsruptLink << l->getNodeFrom() << ",";
-		mf.printDIsruptLink << l->getNodeTo() << ",";
-		mf.printDIsruptLink << l->getLinkFnc()->getFreeFlowTime() << ",";
-		mf.printDIsruptLink << l->getFlow() << ",";
-		mf.printDIsruptLink << l->getLinkFnc()->getCapacity() << ",";
-		mf.printDIsruptLink << l->getLinkFnc()->getAlpha() << ",";
-		mf.printDIsruptLink << l->getLinkFnc()->getPower() << ",";
-		mf.printDIsruptLink << l->getTime();
-		mf.printDIsruptLink << endl;
+		Link_out << NowVulLink << ",";
+		Link_out << l->getIndex() << ",";
+		Link_out << l->getNodeFrom() << ",";
+		Link_out << l->getNodeTo() << ",";
+		Link_out << l->getLinkFnc()->getFreeFlowTime() << ",";
+		Link_out << l->getFlow() << ",";
+		Link_out << l->getLinkFnc()->getCapacity() << ",";
+		Link_out << l->getLinkFnc()->getAlpha() << ",";
+		Link_out << l->getLinkFnc()->getPower() << ",";
+		Link_out << l->getTime();
+		Link_out << endl;
 	}
-	mf.printDIsruptLink.flush();
+	Link_out.flush();
 
 
 }
@@ -385,7 +384,14 @@ void GRAPH::EvaluteGraph(ObjectManager &Man, DecoratedEqAlgo *algo)
 			assert(dest->getODminCost() > 0.0f);
 		}
 	}
-	PrintGraph(Man);
+	if (VCprocedure==Procedure::EvalOne)
+	{
+		PrintGraph(Man,mf.printDisruptOD,mf.printDIsruptLink);
+	}
+	else if (VCprocedure == Procedure::RecoverOne)
+	{
+		PrintGraph(Man,mf.printRecoverOD,mf.printRecoverLink);
+	}
 }
 
 

@@ -3,6 +3,7 @@
 #define DGV
 #include <string.h>
 #include <random>
+#include "GlobalVar.h"
 //defines global
 int NumOrig;
 int NumDest;

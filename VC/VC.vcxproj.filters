@@ -497,6 +497,9 @@
     <ClInclude Include="..\MyAssign\0MyGlobal.h">
       <Filter>AssignHeader</Filter>
     </ClInclude>
+    <ClInclude Include="MyFileClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ReadData.cpp">
@@ -913,10 +916,10 @@
     <ClCompile Include="InterFace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="0_main.cpp">
+    <ClCompile Include="EvalProcedure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EvalProcedure.cpp">
+    <ClCompile Include="0Vcmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

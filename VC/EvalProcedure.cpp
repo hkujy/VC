@@ -51,8 +51,7 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 	//2. for the annh him network, the zone nected the links
 	//3. that is why there is no other links 
 	//4. need to ensure that these LINKs can not be removed
-	//
-	for (int l = 0; l < _g.VulnerableLinks.size(); l++)
+	for (size_t l = 0; l < _g.VulnerableLinks.size(); l++)
 	{
 		CHROME VunSol;
 		std::cout << "link = " << _g.VulnerableLinks.at(l) << ",";
@@ -67,12 +66,13 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 		if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
 		{
 			std::cout << "Node:" << tail << " is a zone node" << endl;
+			system("PAUSE");
 		}
 		if (_man.getNet()->getNodeWithLinks(head)->getIsZone())
 		{
 			std::cout << "Node:" << head << " is a zone node" << endl;
+			system("PAUSE");
 		}
-		// complete check
 		for (int lol = 0; lol < _g.Nodes.at(tail).OutLinks.size(); lol++)
 		{
 			std::cout << "Leaving link index = " << _g.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
@@ -81,12 +81,10 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 		{
 			if (_g.Nodes.at(tail).OutLinks.size() == 1) {
 				std::cout << "********The tail node is a zone and there is only one link leaving the node" << std::endl;
+				system("PAUSE");
 				continue;
 			}
 		}
-		std::cout << _g.Links.at(l).T0 << std::endl;
-
-		std::system("PAUSE");
 		VunSol.VulnerableLinks.push_back(_g.VulnerableLinks.at(l));
 		VunSol.VulnerableLinkDof.push_back(_g.VulnerableLinksDof[l].at(0).first);
 		VunSol.VulnerableLinkDofProb.push_back(_g.VulnerableLinksDof[l].at(0).second);

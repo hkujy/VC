@@ -5,6 +5,7 @@
 #include <random>
 #include <string.h>
 #include "Classes.h"
+#include "MyFileClass.h"
 //Constant
 enum OutPutChanal
 {
@@ -29,7 +30,7 @@ extern bool isWriteConverge;
 extern OutPutChanal WriteOutTo;
 extern Procedure VCprocedure;
 const double ZeroCap = 1.0e-6;
-
+extern MyFiles mf;
 
 
 
