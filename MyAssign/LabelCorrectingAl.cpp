@@ -97,7 +97,7 @@ void LabelCorrectingAl::calculate(int originIndex){
 				}*/
 				
 				distToNextNode = nodeList_[topNode].dist + nextLink->getTime(); 
-				std::cout << "wtf" << nodeList_[nextNodeIndex].dist << std ::endl;
+				//std::cout << "wtf" << nodeList_[nextNodeIndex].dist << std ::endl;
 				if ( distToNextNode < nodeList_[nextNodeIndex].dist) { 
 					//if (originIndex == 1)
 					//{

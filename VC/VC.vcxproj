@@ -313,6 +313,7 @@
     <ClCompile Include="..\MyAssign\Utils.cpp" />
     <ClCompile Include="..\MyAssign\UtilsForDomination.cpp" />
     <ClCompile Include="..\MyAssign\UtilsString.cpp" />
+    <ClCompile Include="EvalProcedure.cpp" />
     <ClCompile Include="GraphFunc.cpp" />
     <ClCompile Include="DebugMsg.cpp" />
     <ClCompile Include="InterFace.cpp" />

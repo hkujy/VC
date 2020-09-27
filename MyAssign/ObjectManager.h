@@ -109,6 +109,8 @@ class ObjectManager {
 
 		LinkFlows * getLinkFlows() { return linkFlows_; }
 		void setAlgoNull() { algo_ = NULL; }
+		void disruptLink(const int _lid);
+		void restoreLink(const int _lid, const double _t0, const double _ca0);
 
 	private:
 		Params *params_;

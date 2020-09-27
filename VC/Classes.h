@@ -97,6 +97,10 @@ public:
 	std::vector<NODE> Nodes;
 	std::vector<OriginBasedOD> OriginSet;
 	std::vector<int> VulnerableLinks;
+	std::vector<int> IniDisruptLinks;
+	
+	// Remark: each case is a sequence of links
+	std::vector<vector<int>> RestoreCases; 
 	std::vector<vector<pair<double,double>>>  VulnerableLinksDof;
 	int NowVulLink;
 	double UNPM;
@@ -118,8 +122,13 @@ public:
 	int PrintLinks(std::ofstream &fout);
 	int PrintOD(std::ofstream &fout);
 	int PrintSp(int Orign, int Dest, std::ofstream &fout);
-	/*read vulunerable links*/
-	void ReadVunLinks(string VunerableFileName);
+	/*read vulnerable links*/
+	void ReadVunLinks(string VunerableFileName); 
+	/*read ini Disrupt links*/
+	void ReadIniDisrup(string IniFileName);
+	void ReadRestoreCase(string RestoreFileName);
+	void disruptLink(const int _lid);
+	void restoreLink(const int _lid);
 	/**Compute graph total cost and UNPM**/
 	//void EvaluteGraph(ObjectManager &Man);
 	void EvaluteGraph(ObjectManager &Man, DecoratedEqAlgo *algo);

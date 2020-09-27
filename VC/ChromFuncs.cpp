@@ -4,6 +4,8 @@
 #include "TempleteFunc.h"
 using namespace std;
 
+
+
 CHROME::CHROME(){
 	this->ID = InvaildInt;
 	this->VulnerableLinks.reserve(NumLinks);
@@ -21,31 +23,44 @@ CHROME::~CHROME(){
 	this->VulnerableLinkDofProb.clear();
 };
 
+void disruptOneLink(GRAPH &_g, ObjectManager &_man, const int _lid)
+{
+	_g.disruptLink(_lid); _man.disruptLink(_lid);
+}
+
 void CHROME::ReviseCap(GRAPH &Graph, ObjectManager &manager) {
 	
 	for (unsigned int i = 0; i < this->VulnerableLinks.size(); i++)
 	{
 		int LinkId = this->VulnerableLinks[i];
-		Graph.Links.at(LinkId).CaRevise
-			= Graph.Links.at(LinkId).CaInput * (1.0f - this->VulnerableLinkDof.at(i));
-		Graph.Links.at(LinkId).CaRevise = max(Graph.Links.at(LinkId).CaRevise, 0.00001);
-		manager.getNet()->getLink(LinkId)->getLinkFnc()->setCapacity(Graph.Links.at(LinkId).CaRevise);
-		manager.getNet()->getLink(LinkId)->getLinkFnc()->setFreeFlowTime(std::numeric_limits<FPType>::infinity());
-		manager.getNet()->getLink(LinkId)->setTime(std::numeric_limits<FPType>::infinity());
-
+		disruptOneLink(Graph, manager, LinkId);
+		//Graph.Links.at(LinkId).CaRevise
+		//	= Graph.Links.at(LinkId).CaInput * (1.0f - this->VulnerableLinkDof.at(i));
+		//Graph.Links.at(LinkId).CaRevise = max(Graph.Links.at(LinkId).CaRevise,ZeroCap);
+		//manager.getNet()->getLink(LinkId)->getLinkFnc()->setCapacity(Graph.Links.at(LinkId).CaRevise);
+		//manager.getNet()->getLink(LinkId)->getLinkFnc()->setFreeFlowTime(std::numeric_limits<FPType>::infinity());
+		//manager.getNet()->getLink(LinkId)->setTime(std::numeric_limits<FPType>::infinity());
 	}
 }
 
+
+void restoreOneLink(GRAPH &_g, ObjectManager &_man, const int _lid) {
+	_g.restoreLink(_lid);
+	double ca0 = _g.Links.at(_lid).CaInput;
+	double t0 = _g.Links.at(_lid).T0;
+	_man.restoreLink(_lid, t0, ca0);
+}
 
 void CHROME::IniCap(GRAPH &_Graph, ObjectManager &manager) {
 	for (unsigned int i = 0; i < this->VulnerableLinks.size(); i++)
 	{
 		int LinkiD = this->VulnerableLinks[i];
-		_Graph.Links.at(LinkiD).IniCap();
-		manager.getNet()->getLink(LinkiD)->getLinkFnc()->setCapacity(_Graph.Links.at(LinkiD).CaInput);
+		restoreOneLink(_Graph, manager,LinkiD);
+		//_Graph.Links.at(LinkiD).IniCap();
+		//manager.getNet()->getLink(LinkiD)->getLinkFnc()->setCapacity(_Graph.Links.at(LinkiD).CaInput);
 
-		manager.getNet()->getLink(LinkiD)->getLinkFnc()->setFreeFlowTime(_Graph.Links.at(LinkiD).T0);
-		manager.getNet()->getLink(LinkiD)->setTime(_Graph.Links.at(LinkiD).T0);
+		//manager.getNet()->getLink(LinkiD)->getLinkFnc()->setFreeFlowTime(_Graph.Links.at(LinkiD).T0);
+		//manager.getNet()->getLink(LinkiD)->setTime(_Graph.Links.at(LinkiD).T0);
 	}
 }
 double CHROME::getSolProb(){
@@ -56,6 +71,8 @@ double CHROME::getSolProb(){
 	}
 	return r;
 }
+
+
 
 void CHROME::EvaluateSol(GRAPH &Graph, ObjectManager &manager)
 {

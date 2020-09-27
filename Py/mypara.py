@@ -16,6 +16,8 @@ class MyParaClass:
             "UEeps":0.001,
             "Network":"SiouxFalls",
             "isWriteConverge":0, # falase, do not write UE converge on screen
+            "Procedure":"EvalOne",  # Evalute selected components by removing them one by one
+            "Procedure":"RecoverOne", # Evaluate the recovered one by one
             "WhereToWrite":1   # 0, screen, 1, file, 2, both
             }
         self.release_exe = ""

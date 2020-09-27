@@ -26,6 +26,7 @@ GRAPH::GRAPH(){
 	//	}
 	//}
 	this->NowVulLink = -1;
+	this->IniDisruptLinks.reserve(NumLinks + 1);
 
 };
 GRAPH::~GRAPH(){
@@ -94,6 +95,71 @@ void GRAPH::CreateOriginSet()
 	}
 }
 
+void GRAPH::ReadRestoreCase(string RestoreFileName)
+{
+	cout << "Read Restore link file: " << RestoreFileName << endl;
+	ifstream fin;
+	fin.open(RestoreFileName);
+	std::string line;
+	std::vector<string> fields;
+	int num = 0;
+	while (getline(fin, line))
+	{
+		vector<int> _tp;
+		splitf(fields, line, ",");
+		if (fields.size() <= 2) continue;
+		for (size_t i = 0; i < fields.size(); i++)
+		{
+			_tp.push_back(std::stoi(fields[i]));
+		}
+		RestoreCases.push_back(_tp);
+	}
+	fin.close();
+	cout << "**************************************" << endl;
+	cout << "Check Read Restore Disrupted links" << endl;
+	for (size_t i = 0; i < RestoreCases.size(); i++)
+	{
+		cout << "RestoreCase_" << i << ":";
+		for (size_t l=0;l<RestoreCases.at(i).size()-1;l++)
+		{
+			cout << RestoreCases.at(i).at(l) << ",";
+		}
+		cout << RestoreCases.at(i).back() << endl;
+	}
+	cout << endl;
+	cout << "**************************************" << endl;
+}
+
+
+void GRAPH::ReadIniDisrup(string IniFileName)
+{
+	cout << "Read vulnerable link file: " << IniFileName << endl;
+	ifstream fin;
+	fin.open(IniFileName);
+	std::string line;
+	std::vector<string> fields;
+	int num = 0;
+	while (getline(fin, line))
+	{
+		splitf(fields, line, ",");
+		if (fields.size() <= 2) continue;
+		
+		for (size_t i = 0; i < fields.size(); i++)
+		{
+			IniDisruptLinks.push_back(std::stoi(fields[i]));
+		}
+	}
+	fin.close();
+	cout << "**************************************" << endl;
+	cout << "Check Read Ini Disrupted links" << endl;
+	for (auto l : IniDisruptLinks)
+	{
+		cout << l << ",";
+	}
+	cout << endl;
+	cout << "**************************************" << endl;
+	
+}
 
 void GRAPH::ReadVunLinks(string VunerableFileName)
 {

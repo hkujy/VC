@@ -100,6 +100,8 @@ bool ReadModelParas(){
 			if (fields[1]._Equal("1")) isWriteConverge = true;
 		}
 		if (fields[0] == "TestIndex")  TestIndex = stoi(fields[1]);
+		if (fields[0] == "EvalOne") VCprocedure = Procedure::EvalOne;
+		if (fields[0] == "RecoverOne") VCprocedure = Procedure::RecoverOne;
 	}
 	fin.close();
 

@@ -3,8 +3,11 @@
 
 using namespace std;
 
+Procedure VCprocedure;
 int IniInterFace(ObjectManager &manager, GRAPH &MyNet);
 bool ReadModelParas();
+void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man);
+void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_ma);
 
 /***********************************************/
 /*allow to pass through the origin node*/
@@ -44,65 +47,9 @@ int main(int argc, char *argv[])
 	IniInterFace(manager, MyGraph);
 	MyGraph.CreateOriginSet();
 	MyGraph.CreateNodes();
-	//MyGraph.ReadVunLinks("C:\\GitCodes\\VC\\Input\\" + NetworkName + "_VulnerableLinks.txt");
-	MyGraph.ReadVunLinks(mf.rootfolder + "Input\\" + NetworkName + "_VulnerableLinks.txt");
-	if (WriteOutTo == file || WriteOutTo == both) cout << "Output converge file" << endl;
-	else std::cout << "converge file is not written" << endl;
-// step 1 solve a base network 
-	MyGraph.NowVulLink = -1;  // representing the base graph, 
-	//MyGraph.EvaluteGraph(manager, manager.getEqAlgo());
-	//system("PAUSE");
 
+	Evaluate_One_Remove(MyGraph, manager);
 
-	// todo 
-	//1. after evaluate the network, set the link cost to be infinity 
-	//2. for the annh him network, the zone nected the links
-	//3. that is why there is no other links 
-	//4. need to ensure that these LINKs can not be removed
-	//
-	for (int l = 0; l < MyGraph.VulnerableLinks.size(); l++)
-	{
-		CHROME VunSol;
-		std::cout << "link = " << MyGraph.VulnerableLinks.at(l) << ",";
-		std::cout << "Dof = " << MyGraph.VulnerableLinksDof[l].at(0).first << ",";
-		std::cout << "Pro = " << MyGraph.VulnerableLinksDof[l].at(0).second << endl;
-		int linkId = MyGraph.VulnerableLinks.at(l);
-		// check the node of the link
-		//curNode->getIsZone()
-		int tail = manager.getNet()->getLink(linkId)->getNodeFrom();
-		int head = manager.getNet()->getLink(linkId)->getNodeTo();
-		//if (manager.getNet()->getnod)
-		if (manager.getNet()->getNodeWithLinks(tail)->getIsZone())
-		{
-			std::cout << "Node:" << tail << " is a zone node" << endl;
-		}
-		if (manager.getNet()->getNodeWithLinks(head)->getIsZone())
-		{
-			std::cout << "Node:" << head << " is a zone node" << endl;
-		}
-		// complete check
-		for (int lol = 0; lol < MyGraph.Nodes.at(tail).OutLinks.size(); lol++)
-		{
-			std::cout << "Leaving link index = " << MyGraph.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
-		}
-		if (manager.getNet()->getNodeWithLinks(tail)->getIsZone())
-		{
-			if (MyGraph.Nodes.at(tail).OutLinks.size() == 1) {
-				std::cout << "********The tail node is a zone and there is only one link leaving the node" << std::endl;
-				continue;
-			}
-		}
-		std::cout << MyGraph.Links.at(l).T0 << std::endl;
-		//
-		system("PAUSE");
-		VunSol.VulnerableLinks.push_back(MyGraph.VulnerableLinks.at(l));
-		VunSol.VulnerableLinkDof.push_back(MyGraph.VulnerableLinksDof[l].at(0).first);
-		VunSol.VulnerableLinkDofProb.push_back(MyGraph.VulnerableLinksDof[l].at(0).second);
-		MyGraph.NowVulLink = MyGraph.VulnerableLinks.at(l);
-		manager.setAlgoNull();
-		VunSol.EvaluateSol(MyGraph, manager);
-	}
-	std::cout << "Cheers" << endl;
 	return 0;
 
 }
