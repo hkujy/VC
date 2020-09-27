@@ -206,9 +206,9 @@ public:
 class MyFiles
 {
 public:
-	std::ofstream printOD;
-	std::ofstream printLink;
-	std::ofstream printSummary;
+	std::ofstream printDisruptOD;
+	std::ofstream printDIsruptLink;
+	std::ofstream printDisruptSummary;
 	std::ofstream printModelPara;
 	std::ofstream printLog;
 	std::string rootfolder;
@@ -217,17 +217,17 @@ public:
 	}
 	~MyFiles()
 	{
-		printOD.close(); printLink.close(); printSummary.close();
+		printDisruptOD.close(); printDIsruptLink.close(); printDisruptSummary.close();
 		printModelPara.close(); printLog.close();
 	}
 	void IniFiles()
 	{
-		printOD.open(rootfolder + "OutPut//" + "OD.csv", ios::trunc);
-		printOD << "VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
-		printLink.open(rootfolder + "OutPut//" + "Link.csv", ios::trunc);
-		printLink << "VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
+		printDisruptOD.open(rootfolder + "OutPut//" + "DisruptOD.csv", ios::trunc);
+		printDisruptOD << "VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
+		printDIsruptLink.open(rootfolder + "OutPut//" + "DisrutpLink.csv", ios::trunc);
+		printDIsruptLink << "VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
 		printModelPara.open(rootfolder + "OutPut//" + "ModelPara.csv", ios::trunc);
-		printSummary.open(rootfolder + "OutPut//" + "Summary.", ios::trunc);
+		printDisruptSummary.open(rootfolder + "OutPut//" + "Summary.", ios::trunc);
 		printLog.open(rootfolder + "OutPut//" + "MsgLog.csv", ios::trunc); printLog.close(); printLog.clear();
 		printLog.open(rootfolder + "OutPut//" + "Log.txt", ios::trunc);
 	}

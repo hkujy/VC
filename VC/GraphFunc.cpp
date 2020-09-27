@@ -227,7 +227,6 @@ void GRAPH::CreateNodes(){
 	}
 }
 
-
 int GRAPH::PrintLinks(std::ofstream &fout){
 
 	try{
@@ -262,7 +261,6 @@ int GRAPH::PrintLinks(std::ofstream &fout){
 		TRACE("%s", e);
 		return 0;
 	}
-
 }
 
 int GRAPH::PrintOD(std::ofstream &fout)
@@ -340,35 +338,35 @@ void GRAPH::PrintGraph(ObjectManager &Man)
 		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
 		{
 			PairOD* dest = *destIt;
-			mf.printOD << NowVulLink << ",";
-			mf.printOD << origin->getIndex() << ",";
-			mf.printOD << dest->getIndex() << ",";
-			mf.printOD << dest->getODIndex() << ",";
-			mf.printOD << dest->getDemand() << ",";
-			mf.printOD << dest->getODminCost();
-			mf.printOD << endl;
+			mf.printDisruptOD << NowVulLink << ",";
+			mf.printDisruptOD << origin->getIndex() << ",";
+			mf.printDisruptOD << dest->getIndex() << ",";
+			mf.printDisruptOD << dest->getODIndex() << ",";
+			mf.printDisruptOD << dest->getDemand() << ",";
+			mf.printDisruptOD << dest->getODminCost();
+			mf.printDisruptOD << endl;
 		}
 	}
-	mf.printOD.flush();
+	mf.printDisruptOD.flush();
 
 	// Second: print links
 
 
 	for (auto l = Man.getNet()->beginOnlyLink(); l != NULL; l = Man.getNet()->getNextOnlyLink())
 	{
-		mf.printLink << NowVulLink << ",";
-		mf.printLink << l->getIndex() << ",";
-		mf.printLink << l->getNodeFrom() << ",";
-		mf.printLink << l->getNodeTo() << ",";
-		mf.printLink << l->getLinkFnc()->getFreeFlowTime() << ",";
-		mf.printLink << l->getFlow() << ",";
-		mf.printLink << l->getLinkFnc()->getCapacity() << ",";
-		mf.printLink << l->getLinkFnc()->getAlpha() << ",";
-		mf.printLink << l->getLinkFnc()->getPower() << ",";
-		mf.printLink << l->getTime();
-		mf.printLink << endl;
+		mf.printDIsruptLink << NowVulLink << ",";
+		mf.printDIsruptLink << l->getIndex() << ",";
+		mf.printDIsruptLink << l->getNodeFrom() << ",";
+		mf.printDIsruptLink << l->getNodeTo() << ",";
+		mf.printDIsruptLink << l->getLinkFnc()->getFreeFlowTime() << ",";
+		mf.printDIsruptLink << l->getFlow() << ",";
+		mf.printDIsruptLink << l->getLinkFnc()->getCapacity() << ",";
+		mf.printDIsruptLink << l->getLinkFnc()->getAlpha() << ",";
+		mf.printDIsruptLink << l->getLinkFnc()->getPower() << ",";
+		mf.printDIsruptLink << l->getTime();
+		mf.printDIsruptLink << endl;
 	}
-	mf.printLink.flush();
+	mf.printDIsruptLink.flush();
 
 
 }

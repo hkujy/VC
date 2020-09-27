@@ -146,7 +146,4 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 			_g.EvaluteGraph(_man, _man.getEqAlgo());
 		}
 	}
-
-
-
 }

@@ -6,13 +6,14 @@ import myclass
 import mypara
 
 
-def read_link(mp:mypara.MyParaClass, _cs):
+def read_link(mp: mypara.MyParaClass, _cs, _source_file):
     """
         read link data
     """
-    source_file  = mp.root_folder + "Output\\Link.csv"
-    print("read link output file : {0}".format(source_file))
-    df = pd.read_csv(source_file)
+    # source_file  = mp.root_folder + "Output\\Link.csv"
+
+    print("read link output file : {0}".format(_source_file))
+    df = pd.read_csv(_source_file)
     num_of_row = df.shape[0]
     _cs.append(myclass.ScenarioClass())
     _cs[-1].id = 0
@@ -27,7 +28,7 @@ def read_link(mp:mypara.MyParaClass, _cs):
         Alpha = df["Alpha"][r]
         Beta = df["Beta"][r]
         Cost = df["Cost"][r]
-        T0 =  df["T0"][r]
+        T0 = df["T0"][r]
         if VulLink == _cs[-1].vul_link:
             pass
         else:
@@ -38,7 +39,7 @@ def read_link(mp:mypara.MyParaClass, _cs):
         _cs[-1].links[-1].id = link_id
         _cs[-1].links[-1].cap = Cap
         _cs[-1].links[-1].flow = Flow
-        _cs[-1].links[-1].t0  = T0
+        _cs[-1].links[-1].t0 = T0
         _cs[-1].links[-1].alpha = Alpha
         _cs[-1].links[-1].tail = Tail
         _cs[-1].links[-1].head = Head
@@ -47,14 +48,15 @@ def read_link(mp:mypara.MyParaClass, _cs):
         # mypara.prn_obj(_cs[-1].links[-1])
     pass
 
-def read_od(mp:mypara.MyParaClass,_cs):
+
+def read_od(mp: mypara.MyParaClass, _cs, _source_file):
     """
         read od data
     """
-    source_file  = mp.root_folder + "Output\\OD.csv"
-    df = pd.read_csv(source_file)
+    # source_file  = mp.root_folder + "Output\\OD.csv"
+    df = pd.read_csv(_source_file)
     num_of_row = df.shape[0]
-    print("read OD output file : {0}".format(source_file))
+    print("read OD output file : {0}".format(_source_file))
     cid = 0
     for r in range(0, num_of_row):
         VulLink = df["VulLink"][r]
@@ -79,15 +81,17 @@ def read_od(mp:mypara.MyParaClass,_cs):
 
     pass
 
-def main(mp:mypara.MyParaClass):
+
+def main(mp: mypara.MyParaClass,_type ="Disrupt"):
     """
         read data main
     """
     cases = []
+    if _type is "Disrupt": 
     # remark: must read link first,this is how the cases list is first built
-    read_link(mp,cases)
-    read_od(mp,cases)
+        read_link(mp, cases, _source_file=mp.root_folder + "Output\\Link.csv")
+        read_od(mp, cases, _source_file=mp.root_folder + "Output\\OD.csv")
+    else:
+        print ("Warning: Need ot update the status type: it is not disrupt")
 
     return cases
-
-

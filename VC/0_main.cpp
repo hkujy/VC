@@ -48,7 +48,16 @@ int main(int argc, char *argv[])
 	MyGraph.CreateOriginSet();
 	MyGraph.CreateNodes();
 
-	Evaluate_One_Remove(MyGraph, manager);
+	if (VCprocedure == Procedure::EvalOne)
+	{
+		cout << "------Evaluate Each Link Measure By Removing the link------" << endl;
+		Evaluate_One_Remove(MyGraph, manager);
+	}
+	else if (VCprocedure == Procedure::RecoverOne)
+	{
+		cout << "-------Test on recover of a sequence of links-------" << endl;
+		Evaluate_One_RestoreBack(MyGraph, manager);
+	}
 
 	return 0;
 
