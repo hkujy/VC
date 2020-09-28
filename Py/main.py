@@ -18,7 +18,8 @@ if __name__== "__main__":
     print("root folder is {0}".format(mp.root_folder))
     # setTest.test_remove_link(mp,_num_links = 10)
     # set _numlink = -1 is to compute all the links 
-    setTest.test_remove_link(mp,_num_links = -1)   
+    # setTest.test_remove_link(mp,_num_links = -1)   
+    setTest.test_recover_case(mp,_num_links = 3)
     
 
 

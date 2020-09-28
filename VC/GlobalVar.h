@@ -29,7 +29,7 @@ extern double UEeps;
 extern bool isWriteConverge;
 extern OutPutChanal WriteOutTo;
 extern Procedure VCprocedure;
-const double ZeroCap = 1.0e-6;
+const double ZeroCap = 1.0e-10;
 extern MyFiles mf;
 
 

@@ -42,8 +42,8 @@ public:
 		printRecoverLink.open(rootfolder + "OutPut//" + "RecoverLink.csv", ios::trunc);
 		printRecoverLink << "VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
 
-		printDisruptSummary.open(rootfolder + "OutPut//" + "DisruptSummary.", ios::trunc);
-		printRecoverSummary.open(rootfolder + "OutPut//" + "DisruptSummary.", ios::trunc);
+		printDisruptSummary.open(rootfolder + "OutPut//" + "DisruptSummary.txt", ios::trunc);
+		printRecoverSummary.open(rootfolder + "OutPut//" + "RecoverSummary.txt", ios::trunc);
 
 
 		printModelPara.open(rootfolder + "OutPut//" + "ModelPara.csv", ios::trunc);

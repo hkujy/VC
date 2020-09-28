@@ -40,7 +40,7 @@ FPType RelGap::getTotalTravelTime() {
 			std::cout << "totalTravelTime = " << totalTravelTime << " flow = " << 
 				link->getFlow() << " time = " << link->getTime() << std::endl;
 			throw Error("totalTravelTime is NaN. Something went horribly wrong.");
-		}
+	}
 	}
 	return totalTravelTime;
 };

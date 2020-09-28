@@ -26,8 +26,8 @@ void GRAPH::restoreLink(const int _lid)
 void ObjectManager::disruptLink(const int _lid)
 {
 	this->getNet()->getLink(_lid)->getLinkFnc()->setCapacity(ZeroCap);
-	this->getNet()->getLink(_lid)->getLinkFnc()->setFreeFlowTime(std::numeric_limits<FPType>::infinity());
-	this->getNet()->getLink(_lid)->setTime(std::numeric_limits<FPType>::infinity());
+	//this->getNet()->getLink(_lid)->getLinkFnc()->setFreeFlowTime(std::numeric_limits<FPType>::infinity());
+	//this->getNet()->getLink(_lid)->setTime(std::numeric_limits<FPType>::infinity());
 }
 void ObjectManager::restoreLink(const int _lid,const double _t0,const double _ca0)
 {
@@ -62,6 +62,7 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 		//curNode->getIsZone()
 		int tail = _man.getNet()->getLink(linkId)->getNodeFrom();
 		int head = _man.getNet()->getLink(linkId)->getNodeTo();
+		cout << "Tail = " << tail << ", Head = " << head << endl;
 		//if (manager.getNet()->getnod)
 		if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
 		{

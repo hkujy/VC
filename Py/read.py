@@ -89,8 +89,8 @@ def main(mp: mypara.MyParaClass,_type ="Disrupt"):
     cases = []
     if _type is "Disrupt": 
     # remark: must read link first,this is how the cases list is first built
-        read_link(mp, cases, _source_file=mp.root_folder + "Output\\Link.csv")
-        read_od(mp, cases, _source_file=mp.root_folder + "Output\\OD.csv")
+        read_link(mp, cases, _source_file=mp.root_folder + "Output\\DisrutpLink.csv")
+        read_od(mp, cases, _source_file=mp.root_folder + "Output\\DisruptOD.csv")
     else:
         print ("Warning: Need ot update the status type: it is not disrupt")
 
