@@ -7,6 +7,7 @@
 #include "Classes.h"
 #include <fstream>
 #include <cstring>
+//#include "DefGloVar.h"
 using namespace std;
 void LogMsg(const char *format, ...) {
 
@@ -30,6 +31,8 @@ void LogMsg(const char *format, ...) {
 	va_end(ap);
 	fclose(LogFile);
 	//Log = NULL;
+	std::cout << "-------------Check Warning Msa---------------" << std::endl;
+	system("PAUSE");
 }
 
 

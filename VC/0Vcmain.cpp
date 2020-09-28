@@ -1,5 +1,5 @@
 ﻿#include "CommonHeaders.h"
-#include "DefGloVar.h"
+//#include "DefGloVar.h"
 
 using namespace std;
 
@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 	// Step. 1: Read para
 
 	if (!ReadModelParas()) cerr << "Read Model Fails" << endl;// Must before
+	mf.IniFiles();
+
 #pragma region ReadManagerNet
 	std::string fileParams = mf.rootfolder + "Input\\input.params";
 	Params params;

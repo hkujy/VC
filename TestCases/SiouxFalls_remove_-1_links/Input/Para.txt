@@ -1,6 +1,0 @@
-TestIndex,1
-OneDimEsp,1e-07
-UEeps,0.01
-Network,SiouxFalls
-isWriteConverge,0
-WhereToWrite,1

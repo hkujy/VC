@@ -11,6 +11,7 @@ GRAPH::GRAPH(){
 	this->OriginSet.reserve(NumNodes + 1);
 	this->Nodes.reserve(NumNodes + 1);
 	this->Links.reserve(NumLinks + 1);
+	this->NowRecoverCase = -1;
 	//int** MinPathPredLink;
 	if (NumNodes==0)
 	{
@@ -107,7 +108,11 @@ void GRAPH::ReadRestoreCase(string RestoreFileName)
 	{
 		vector<int> _tp;
 		splitf(fields, line, ",");
-		if (fields.size() <= 2) continue;
+		if (fields.size() <= 1)
+		{
+			TRACE("Num of restore link is <=1, are you sure?");
+			continue;
+		}
 		for (size_t i = 0; i < fields.size(); i++)
 		{
 			_tp.push_back(std::stoi(fields[i]));
@@ -142,7 +147,11 @@ void GRAPH::ReadIniDisrup(string IniFileName)
 	while (getline(fin, line))
 	{
 		splitf(fields, line, ",");
-		if (fields.size() <= 2) continue;
+		if (fields.size() <= 1)
+		{
+			TRACE("Num of ini disrupt link is <=1, are you sure?");
+			continue;
+		}
 		
 		for (size_t i = 0; i < fields.size(); i++)
 		{
@@ -338,6 +347,7 @@ void GRAPH::PrintGraph(ObjectManager &Man,std::ofstream &OD_out,std::ofstream &L
 		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
 		{
 			PairOD* dest = *destIt;
+			OD_out<< NowRecoverCase << ",";
 			OD_out<< NowVulLink << ",";
 			OD_out << origin->getIndex() << ",";
 			OD_out << dest->getIndex() << ",";
@@ -353,6 +363,7 @@ void GRAPH::PrintGraph(ObjectManager &Man,std::ofstream &OD_out,std::ofstream &L
 
 	for (auto l = Man.getNet()->beginOnlyLink(); l != NULL; l = Man.getNet()->getNextOnlyLink())
 	{
+		Link_out << NowRecoverCase << ",";
 		Link_out << NowVulLink << ",";
 		Link_out << l->getIndex() << ",";
 		Link_out << l->getNodeFrom() << ",";

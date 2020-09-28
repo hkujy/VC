@@ -1,4 +1,7 @@
 
+from mypara import MyParaClass
+
+
 class LinkClass:
     def __init__(self): 
         self.id = -1
@@ -26,6 +29,7 @@ class ScenarioClass:
         self.vul_link = -1
         self.ods = []
         self.links = []
+        self.RecoverCase = -1
         self.vul_measure = {
             "V/C":-1.0,  # v/c ratio
             "NEI":-1.0,  # network efficiency
@@ -37,24 +41,34 @@ class ScenarioClass:
 
         }
 
-    def cal_vc_ratio(self):
+    def cal_vc_ratio(self,mp:MyParaClass):
         """
             vc ratio for each links
         """
         for l in self.links:
             if l.id == self.vul_link:
-                l.vc_ratio = 99
+                if mp.para_dict["Procedure"] == "EvalOne":
+                    l.vc_ratio = 99
+                elif mp.para_dict["Procedure"] == "RecoverOne":
+                    l.vc_ratio = l.flow/l.cap
+                else:
+                    input("Warning: cal NRI, procedure is not specified")
             else:
                 l.vc_ratio = l.flow/l.cap
     
-    def cal_NRI(self):
+    def cal_NRI(self,mp:MyParaClass):
         """
             total cost
         """
         self.vul_measure["NRI"] = 0.0
-        for l in self.links:
+        for l in self.links:                
             if l.id == self.vul_link:
-                pass
+                if mp.para_dict["Procedure"] == "EvalOne":
+                    pass
+                elif mp.para_dict["Procedure"] == "RecoverOne":
+                    self.vul_measure["NRI"] = self.vul_measure["NRI"] + l.cost*l.flow
+                else:
+                    input("Warning: cal NRI, procedure is not specified")
             else:
                 self.vul_measure["NRI"] = self.vul_measure["NRI"] + l.cost*l.flow
     

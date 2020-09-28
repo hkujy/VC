@@ -1,6 +1,7 @@
 #include "CommonHeaders.h"
 #include <string>
 #include "TempleteFunc.h"
+//#include "DefGloVar.h"
 using namespace std;
 
 bool ReadLinkData(std::vector<LINK> &Links,
@@ -65,7 +66,7 @@ bool PrintModelParas(){
 
 	ofstream fout;
 	//fout.open("c://GitCodes//VC//OutPut//ModelPara.txt");
-	fout.open(mf.rootfolder + "OutPut//ModelPara.txt");
+	fout.open(mf.rootfolder + "OutPut//ModelPara.csv");
 	fout << "NumNodes" << "," << NumNodes << endl;
 	fout << "NumOD" << "," << NumOD << endl;
 	fout << "NumLinks" << "," << NumLinks << endl;
@@ -100,8 +101,11 @@ bool ReadModelParas(){
 			if (fields[1]._Equal("1")) isWriteConverge = true;
 		}
 		if (fields[0] == "TestIndex")  TestIndex = stoi(fields[1]);
-		if (fields[0] == "EvalOne") VCprocedure = Procedure::EvalOne;
-		if (fields[0] == "RecoverOne") VCprocedure = Procedure::RecoverOne;
+		if (fields[0] == "Procedure")
+		{
+			if (fields[1] == "EvalOne") VCprocedure = Procedure::EvalOne;
+			if (fields[1] == "RecoverOne") VCprocedure = Procedure::RecoverOne;
+		}
 	}
 	fin.close();
 

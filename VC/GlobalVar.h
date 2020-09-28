@@ -33,5 +33,4 @@ const double ZeroCap = 1.0e-10;
 extern MyFiles mf;
 
 
-
 #endif

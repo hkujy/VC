@@ -3,8 +3,9 @@
 #define DGV
 #include <string.h>
 #include <random>
-#include "GlobalVar.h"
+#include "MyFileClass.h"
 //defines global
+
 int NumOrig;
 int NumDest;
 int NumLinks;

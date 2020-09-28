@@ -320,6 +320,7 @@
     <ClCompile Include="InterFace.cpp" />
     <ClCompile Include="LinkFuncs.cpp" />
     <ClCompile Include="0Vcmain.cpp" />
+    <ClCompile Include="MyFileFunc.cpp" />
     <ClCompile Include="ReadData.cpp" />
     <ClCompile Include="ChromFuncs.cpp" />
   </ItemGroup>

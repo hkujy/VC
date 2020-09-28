@@ -81,7 +81,7 @@ public:
 	std::vector<const OD*>  ODset;
 	OriginBasedOD(){
 		Onode = InvaildInt;
-		ODset.reserve(NumNodes);
+		ODset.reserve(100);
 	};
 	~OriginBasedOD(){
 		Onode = InvaildInt;
@@ -103,6 +103,7 @@ public:
 	std::vector<vector<int>> RestoreCases; 
 	std::vector<vector<pair<double,double>>>  VulnerableLinksDof;
 	int NowVulLink;
+	int NowRecoverCase;
 	double UNPM;
 	double TotalSystemCost;
 	int **MinPathPredLink;

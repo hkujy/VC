@@ -2,7 +2,7 @@
     functions for set up a test
 """
 import os
-from os import link
+from os import link, pardir
 from unittest import case
 import mypara
 import myplot
@@ -11,6 +11,7 @@ import shutil
 import random
 import read as rd
 import calVulMesures as cal
+import Combination as comb
 
 
 def copy_file(_from, _to):
@@ -60,7 +61,14 @@ def one_test(mp: mypara.MyParaClass, _name="try"):
             os.system(mp.release_exe)
 
     # step 4: read case data
-    cases = rd.main(mp, "Disrupt")
+    process_type = ""
+    if mp.para_dict["Procedure"] =="EvalOne":
+        process_type = "Disrupt" 
+    elif mp.para_dict["Procedure"] =="RecoverOne":
+        process_type ="Recover"
+    else:
+        print("Warning: on the procedure parameter setting")
+    cases = rd.main(mp, process_type)
     # step 5: calculate the vul measures
     cal.main(mp, cases)
     # step 5: plot main function
@@ -95,6 +103,8 @@ def gen_random_set_link(mp: mypara.MyParaClass, _num_links=1, _lb=1, _ub=50):
             print(
                 "Warning: The Test Parameters for other networks have not been specified")
             input("Stop the code")
+    
+    links = [11,22,33,44,66,5,34,70,55,14]
     return links
 
 
@@ -111,14 +121,11 @@ def test_remove_link(mp: mypara.MyParaClass, _num_links=1):
     return cases
 
 
-def test_recover_case(mp: mypara.MyParaClass, _num_links=1):
+def test_recover_case_step1_remove(mp:mypara.MyParaClass,_num_links):
     """
-        test recover case
+        step 1: write the disrupted links and also write the order of the recover links
     """
-    # step 1: test the number
-    mp.para_dict["Procedure"] = "EvalOne"
     cases = test_remove_link(mp, _num_links)
-
     # step 2: sort the vul link measure based on the selected links
     sort_measure = {}
     for c in cases:
@@ -138,7 +145,7 @@ def test_recover_case(mp: mypara.MyParaClass, _num_links=1):
     # sorted(sort_measure .items(), lambda x, y: cmp(x[1], y[1]), reverse=True)
      # step 3: print these links as the disrupted links
     print("*****Print the base disruption scenario*********")
-    with open("c:\GitCodes/VC/InPut/"+mp.para_dict["Network"]+"__IniDisrupt.txt", "w+") as f:
+    with open("c:\GitCodes/VC/InPut/"+mp.para_dict["Network"]+"_IniDisrupt.txt", "w+") as f:
         for c in range(0, len(cases)-1):
             if cases[c].vul_link>=0:
                 print("{0},".format(cases[c].vul_link),end='', file=f)
@@ -150,17 +157,42 @@ def test_recover_case(mp: mypara.MyParaClass, _num_links=1):
     print("*************************************************")
     print("*****print the order the links to be added")
     # step 4: print the recover links
-    with open("c:\GitCodes/VC/InPut/recover.txt", "w+") as f:
+    with open("c:\GitCodes/VC/InPut/"+mp.para_dict["Network"]+"_recover.txt", "w+") as f:
         _val = []
         for v in sort_orders:
             if int(v[0])>=0:
                 _val.append(int(v[0]))
-        for i in range(0, len(_val)-1):
-            print("{0},".format(_val[i]),end='', file=f)
-            print("{0},".format(_val[i]),end='')
-        print(_val[-1], file=f)
-        print(_val[-1])
+
+        all_vec = comb.get_all_possible_order(_val)
+
+        for v in all_vec:
+            for i in range(0, len(v)-1):
+                print("{0},".format(v[i]),end='', file=f)
+                print("{0},".format(v[i]),end='')
+            print(v[-1], file=f)
+            print(v[-1])
     print("***************************************************")
 
-    # step 5. to rank the link index
+    # input("check the recover cases")
+
+
+def test_recover_case(mp: mypara.MyParaClass, _num_links=1):
+    """
+        test recover case
+    """
+    # step 1: test the number
+    mp.para_dict["Procedure"] = "EvalOne"
+    test_recover_case_step1_remove(mp,_num_links)
+    # # step 2. to rank the link index
     mp.para_dict["Procedure"] = "RecoverOne"
+    cases = one_test(
+        mp, _name=mp.para_dict["Network"]+"_recover_"+str(_num_links)+"_links")
+
+    # cal.main(mp, cases)
+
+    # cid = len(cases)-1
+    # with open("Check.txt","w+") as f:
+    #     for l in cases[cid].links:
+    #         print("{0},{1}".format(l.cost,l.flow),file=f)
+
+

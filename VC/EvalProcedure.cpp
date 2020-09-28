@@ -1,5 +1,5 @@
 #include "CommonHeaders.h"
-
+#include "DefGloVar.h"
 using namespace std;
 
 void disruptOneLink(GRAPH &_g, ObjectManager &_man, const int _lid);
@@ -41,14 +41,16 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 {
 
 	_g.ReadVunLinks(mf.rootfolder + "Input\\" + NetworkName + "_VulnerableLinks.txt");
+
 	if (WriteOutTo == file || WriteOutTo == both) cout << "Output converge file" << endl;
 	else std::cout << "converge file is not written" << endl;
 	// step 1 solve a base network 
 	_g.NowVulLink = -1;  // representing the base graph, 
+	_g.NowRecoverCase = -1;  // set the dummy value of the recover case
 	_g.EvaluteGraph(_man, _man.getEqAlgo());
 	// todo 
 	//1. after evaluate the network, set the link cost to be infinity 
-	//2. for the annh him network, the zone nected the links
+	//2. for the annhhim network, the zone connected the links
 	//3. that is why there is no other links 
 	//4. need to ensure that these LINKs can not be removed
 	for (size_t l = 0; l < _g.VulnerableLinks.size(); l++)
@@ -74,10 +76,10 @@ void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
 			std::cout << "Node:" << head << " is a zone node" << endl;
 			system("PAUSE");
 		}
-		for (int lol = 0; lol < _g.Nodes.at(tail).OutLinks.size(); lol++)
-		{
-			std::cout << "Leaving link index = " << _g.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
-		}
+		//for (int lol = 0; lol < _g.Nodes.at(tail).OutLinks.size(); lol++)
+		//{
+		//	std::cout << "Leaving link index = " << _g.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
+		//}
 		if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
 		{
 			if (_g.Nodes.at(tail).OutLinks.size() == 1) {
@@ -121,7 +123,8 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 	}
 	cout << "done" << endl;
 	cout << "*******************************************************" << endl;
-
+	//_g.NowRecoverCase = -99;
+	//_g.EvaluteGraph(_man, _man.getEqAlgo());
 	// step 2: compute the base network based on the disrupted scenario
 	cout << "Start to evaluate the disrupted network as the base case" << endl;
 	for (const auto &l:_g.IniDisruptLinks)
@@ -133,16 +136,27 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 	cout << "*******************************************************" << endl;
 	
 	// step 3: for all the cases restore the links
-	
+
+	_g.NowRecoverCase = 0;
+	_g.ReadRestoreCase(mf.rootfolder + "Input\\" + NetworkName + "_recover.txt");
 	for (size_t c = 0; c < _g.RestoreCases.size(); c++)
 	{
-		for (size_t l = 0; l < _g.RestoreCases.size();l++)
+		for (size_t l = 0; l < _g.RestoreCases.at(c).size();l++)
 		{
 			int linkid = _g.RestoreCases.at(c).at(l);
 			cout << "Add recover link : " << linkid << endl;
 			restoreOneLink(_g, _man, linkid);
 			_man.setAlgoNull();
+			_g.NowVulLink = linkid;
 			_g.EvaluteGraph(_man, _man.getEqAlgo());
 		}
+		cout << "all links has been added back" << endl;	
+		_g.NowRecoverCase++;
+		// before evaluate the next case, remove all the disrupted links
+		for (const auto &l:_g.IniDisruptLinks)
+		{
+			disruptOneLink(_g, _man, l);
+		}
 	}
+
 }

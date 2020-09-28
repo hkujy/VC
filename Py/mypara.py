@@ -1,8 +1,8 @@
 import os
 
 
-# is_run_exe = True
-is_run_exe = False
+is_run_exe = True
+# is_run_exe = False
 is_debug_exe = True
 # is_debug_exe = False
 
