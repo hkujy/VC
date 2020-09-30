@@ -38,7 +38,6 @@ class ScenarioClass:
             "NTR":-1.0,  # NRI/total demand
             "UNPM":-1.0, # unified network index
             "EG":-1.0  # used in computing UNPM
-
         }
 
     def cal_vc_ratio(self,mp:MyParaClass):

@@ -278,12 +278,12 @@ void ObjectManager::generateRndTollsAndWriteToFile(const std::string& rndTollsFi
 
 StarNetwork* ObjectManager::getNet(){
 	if (net_ == NULL) {
-		std::cout << "Creating network" << std::endl;
+		std::cout << "Info: Creating network" << std::endl;
 		if (getIfAdditive()) {
 			DefaultNetParser parser( params_->getParam("NETWORK"));
 			net_ = parser.parseNetwork();
 			net_->linkNodes();
-			std::cout << "DefaultNetParser and link nodes finished" << std::endl;
+			std::cout << "Info: DefaultNetParser and link nodes finished" << std::endl;
 		} else {
 			NonAddParser parser( params_->getParam("NETWORK"));
 			net_ = parser.parseNetwork();
@@ -296,18 +296,18 @@ StarNetwork* ObjectManager::getNet(){
 			}
 			assert(tolls_ != NULL);
 		}
-		std::cout << "Network created " << std::endl;
+		std::cout << "Info: Network created " << std::endl;
 	}
 	return net_;
 };
 
 ODMatrix* ObjectManager::getODMatrix(){
 	if (odMatrix_ == NULL) {
-		std::cout << "Creating OD matrix" << std::endl;
+		std::cout << "Info: Creating OD matrix" << std::endl;
 		std::string file =  params_->getParam("OD_MATRIX"); 
 		DefaultODMatrixParser parser(file);
 		odMatrix_ = parser.parseODMatrix(getNet());
-		std::cout << "OD matrix created" << std::endl;
+		std::cout << "Info: OD matrix created" << std::endl;
 	}
 	return odMatrix_;
 };
@@ -353,13 +353,13 @@ ShortestPath* ObjectManager::getShPath(){
 
 Derivative* ObjectManager::getDerivative(){
 	if (der_ == NULL){
-		std::cout << "Creating derivative" << std::endl;
+		std::cout << "Info: Creating derivative" << std::endl;
 		if (getIfAdditive() == true) {
 			der_ = new Derivative(getFloatValue("ZERO_FLOW"), getLinkFncCont());
 		} else {
 			throw Error("Derivative is not implemented for the non-additive case");
 		}
-		std::cout << "Derivative created" << std::endl;
+		std::cout << "Info: Derivative created" << std::endl;
 	}	
 	return der_;
 };
@@ -370,7 +370,7 @@ LineSearch* ObjectManager::getLineSearch(){
 			throw Error("Line search is not implemented for the non-additive case");
 		}
 		// line search, possible values: BISEC, ARMIJO, QUAD_APP
-		std::cout << "Creating line search" << std::endl;
+		std::cout << "Info: Creating line search" << std::endl;
 		std::string tmp =  params_->getParamWoSpaces("LINE_SEARCH");
 		if (tmp == "BISEC") {
 			FPType pr = getFloatValue("LS_PRECISION");
@@ -385,7 +385,7 @@ LineSearch* ObjectManager::getLineSearch(){
 		} else {
 			throw Error("Unexpected value of parameter <LINE_SEARCH>");
 		}
-		std::cout << "Line search created" << std::endl;
+		std::cout << "Info: Line search created" << std::endl;
 		
 	}
 	return lineSearch_;
@@ -396,9 +396,9 @@ ConvMeasure* ObjectManager::getConvMeasure(){
 		std::string conv =  params_->getParamWoSpaces("CONV_MEASURE");
 		if (conv == "RGAP") {
 			assert(getIfAdditive() == true);
-			std::cout << "Creating relative gap" << std::endl;
+			std::cout << "Info: Creating relative gap" << std::endl;
 			convMeasure_ = new RelGap(getFloatValue("PRECISION"), getNet(), getODMatrix(), getLabelCorrectingAlgo());
-			std::cout << "RGAP created" << std::endl;
+			std::cout << "Info: RGAP created" << std::endl;
 		} else if (conv == "MAX_DIFF") {
 			assert(getPathAlgoType() != Nothing);
 			convMeasure_ = new MaxDiffConvMeasure(getFloatValue("PRECISION"), getShPath(),
@@ -500,7 +500,7 @@ DecoratedEqAlgo* ObjectManager::getEqAlgo(const std::string& dirConv,
 							const std::string& dirFlows){
 	
 	if (algo_ == NULL) {
-		std::cout << "Creating algo" << std::endl;
+		std::cout << "Info: Creating algo" << std::endl;
 		std::string tmp =  params_->getParamWoSpaces("ALGORITHM");
 		if ((tmp == "FW") || (tmp == "CFW") || (tmp == "BFW")) {
 			assert(getIfAdditive() == true);
@@ -585,7 +585,7 @@ DecoratedEqAlgo* ObjectManager::getEqAlgo(const std::string& dirConv,
 			throw Error("Unexpected value of parameter <ALGORITHM>");
 		}
 		
-		std::cout << "Adding decorations" << std::endl;
+		std::cout << "info: Adding decorations" << std::endl;
 		tmp =  params_->getParamWoSpaces("CONVERGENCE");
 		if (tmp != "") {
 			getAddHook();
@@ -602,16 +602,16 @@ DecoratedEqAlgo* ObjectManager::getEqAlgo(const std::string& dirConv,
 			}
 			algo_ = new AlgoDecoratorWriteLinks(algo_, getNet(), tmp, dirFlows);
 		}
-		std::cout << "Algo created" << std::endl;
+		std::cout << "Info: Algo created" << std::endl;
 	}
 	return algo_;
 };
 
 LinkFncContainer* ObjectManager::getLinkFncCont(){
 	if (linkFnc_ == NULL) {
-		std::cout << "Creating linkFncContainer" << std::endl;
+		std::cout << "Info: Creating linkFncContainer" << std::endl;
 		linkFnc_ = new LinkFncContainer(getNet());
-		std::cout << "linkFncContainer created" << std::endl;
+		std::cout << "Info: linkFncContainer created" << std::endl;
 	}
 	return linkFnc_;
 };
@@ -657,7 +657,7 @@ OriginSet* ObjectManager::getOriginSet(){
 
 AddHook* ObjectManager::getAddHook(){
 	if (addHook_ == NULL) {
-		std::cout << "Creating AddHook" << std::endl;
+		std::cout << "Info: Creating AddHook" << std::endl;
 		std::string onScreen =  params_->getParamWoSpaces("SHOW_CONVERGENCE");
 		std::string toFile =  params_->getParamWoSpaces("CONVERGENCE");
 		if (onScreen != "") {
@@ -673,7 +673,7 @@ AddHook* ObjectManager::getAddHook(){
 		} else {
 			addHook_ = new AddHook();
 		}
-		std::cout << "AddHook created" << std::endl;	
+		std::cout << "Info: AddHook created" << std::endl;	
 	}
 	return addHook_;
 };

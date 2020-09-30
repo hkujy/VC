@@ -101,7 +101,7 @@ def repair(H, sorted_edges, TF, connection):
 if __name__== "__main__":
     
     
-    disrupt_links = [11,12,13] 
+    disrupt_links = [11,12,13,29,75] 
 
     #***********************************
     # the disrupt scenario contains 3 links
@@ -123,7 +123,7 @@ if __name__== "__main__":
 
 
     #***********************************
-    # How to access and use the reults
+    # How to access and use the result
     # for test case 1
     print("------Example of test case 1------------------")
     print("Total Cost of base case in Test_Case_1 is {0}".format(test_case_1[0].vul_measure["NRI"]))
@@ -134,11 +134,14 @@ if __name__== "__main__":
     for c in test_case_2:
         print("CaseIndex={0},RemoveLink={1},TotalCost/NRI={2}".format(c.CaseIndex,c.vul_link,c.vul_measure["NRI"]))
 
-    print("------Example of get cost------------------")
-    # select one OD pair
+    # if you want to compute other measures or check the detail of the computation 
+    # you can refer to file "myclass.py" and check the ScenarioClass
+    print("------Example of get more information------------------")
+
+    # select one OD pair, for demonstration, I choose 11
     _od = 11
     _link = 1
-    _c = test_case_1[0]   # can be any case
+    _c = test_case_1[0]   # can be any case or you use the test_case directly 
 
     print("OD pair={0},origin={1},dest={2},demand={3},UECost={4}".format
     (_od, _c.ods[_od].origin, _c.ods[_od].dest,_c.ods[_od].demand, _c.ods[_od].UECost))

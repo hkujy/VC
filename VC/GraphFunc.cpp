@@ -179,7 +179,9 @@ try
 	fin.open(VunerableFileName);
 	std::string line;
 	std::vector<string> fields;
+#ifdef DEBUG
 	std::cout << "Remark: NumOD, NumNode, NumLinks are set based manger network" << endl;
+#endif // DEBUG
 	int num = 0;
 	int LinkId;
 	double dof, prob;

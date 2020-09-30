@@ -34,7 +34,7 @@ def main(mp:mypara.MyParaClass,_cs):
     """
         compute the UE based UNPM measures
     """
-    print("Py: start to compute the measures")
+    print("PyInfo: Start to compute the measures")
     for c in _cs:
         c.cal_vc_ratio(mp)
         c.cal_NRI(mp)
@@ -43,14 +43,17 @@ def main(mp:mypara.MyParaClass,_cs):
         _cs[cid].cal_wNRI(_cs[0])
         _cs[cid].cal_UNPM(_cs[0])
 
+    print("PyInfo: Complete computing the measures")
+    
     if mp.para_dict["Procedure"] =="Eval_remove_each_one" or mp.para_dict["Procedure"]=="Eval_base_and_given_net":
         print_disrupt_case_summary(mp,_cs)
     # elif mp.para_dict["Procedure"] =="RecoverOne":
         # print_reover_case_summary(mp,_cs)
     else:
         print("Warning: The Procedure parameter is not set")
+        input("Warning and Stop: Check calVulMeaure main")
+        
 
-    print("Py: complete computing the measures")
 
 
     

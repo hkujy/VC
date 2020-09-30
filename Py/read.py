@@ -92,17 +92,20 @@ def main(mp: mypara.MyParaClass, _type="Disrupt"):
     cases = []
     if _type is "Disrupt":
         # remark: must read link first,this is how the cases list is first built
-        print("Read link and OD from *disrupted* links files")
+        print("PyInfo: Start to read link and OD from files")
         read_link(mp, cases, _source_file=mp.root_folder +
                   "Output\\DisrutpLink.csv")
         read_od(mp, cases, _source_file=mp.root_folder + "Output\\DisruptOD.csv")
-        print("Complete read links")
+        print("PyInfo: Complete read link and OD files")
     elif _type is "Recover":
+        print("Warning: This should not be called")
+        input("Warning and Stop")
         print("Read link and OD from *Recover* links files")
         read_link(mp, cases, _source_file=mp.root_folder +
                   "Output\\RecoverLink.csv")
         read_od(mp, cases, _source_file=mp.root_folder + "Output\\RecoverOD.csv")
     else:
         print("Warning: Need ot update the status type: it is not disrupt")
+        input("Warning and Stop")
 
     return cases

@@ -77,13 +77,13 @@ int IniInterFace(ObjectManager &manager, GRAPH &MyNet)
 try
 {
 	FromAlgToMyNet(manager, MyNet);
-	cout<<"Complete Network Conversion"<<endl;
+	cout<<"Info: Complete Network Conversion"<<endl;
 //#ifdef DEBUG
 //	MyNet.PrintLinks(mf.AssertLog);
 //	MyNet.PrintOD(mf.AssertLog);
 //#endif
 	return 1;
-	cout<<"Complete tranfer manger to my own network"<<endl;
+	cout<<"Info: Complete convert graph manger to my own network graph"<<endl;
 }
 catch (Error error) 
 {

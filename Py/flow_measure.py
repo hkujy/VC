@@ -2,9 +2,6 @@
 """
     write the test scrips
 """
-import os
-import shutil
-from turtle import settiltangle
 import mypara 
 import set_set_simple as st
 
@@ -13,16 +10,19 @@ def main_func(_disrupt_links,_method):
     """
         Input: set of disrupted links
         The c++ with evalute two networks  
-        1. one network is the origin network without any diruption 
+        1. one network is the origin network without any disruption 
         2. one network with given disrupted links
     """
     mp = mypara.MyParaClass()
     mp.get_root_folder()
-    print("root folder is {0}".format(mp.root_folder))
     mp.para_dict["Procedure"] = _method
+    print("PyInfo: working root folder is {0}".format(mp.root_folder))
+    print("PyInfo: c++ computation procedure is {0}".format(_method))
 
+    print("PyInfo: start to compute one case")
     cases = st.test_case(mp,_disrupt_links,_method)
 
+    print("------------PyInfo: Cheers Complete Computing one case --------")
     return cases
 
 # if __name__== "__main__":

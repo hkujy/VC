@@ -73,7 +73,7 @@ void ODMatrix::setIndexes(){
 		}
 	}
 	nbODPairs_ = count;
-	std::cout << "nbODPairs = " << nbODPairs_ << std::endl;	
+	std::cout << "Info: nbODPairs = " << nbODPairs_ << std::endl;	
 };
 
 FPType ODMatrix::getDemandByIndex(int originIndex, int destIndex) const{

@@ -37,10 +37,13 @@ int main(int argc, char *argv[])
 	params.setParameter("OD_MATRIX", mf.rootfolder + "Input\\" + NetworkName + "_trips.txt");
 	//params.setParameter("SHOW_CONVERGENCE", "yes");  // if want to show the convergence
 	params.setParameter("SHOW_CONVERGENCE", "");
+#ifdef DEBUG
 	std::cout << "PRECISION = "<<params.getParam("PRECISION") << endl;
 	std::cout <<"NETWORK = "<< params.getParam("NETWORK") << endl;
 	std::cout <<"OD_MATRIX = "<< params.getParam("OD_MATRIX") << endl;
 	std::cout << "Remark: If the assignment method is FW/BFW/CFW, need to double check the initialization function" << endl;
+#endif // DEBUG
+
 #pragma endregion
 	NumNodes = manager.getNet()->getNbNodes();
 	NumLinks = manager.getNet()->getNbLinks();

@@ -52,18 +52,13 @@ def one_test(mp: mypara.MyParaClass, _name="try"):
     # step 3: run the test
     if mypara.is_run_exe:
         if mypara.is_debug_exe:
-            print("Start to run debug mode")
+            print("PyInfo: Start to run debug mode")
             os.system(mp.debug_exe)
         else:
-            print("Start to run release mode")
+            print("PyInfo: Start to run release mode")
             os.system(mp.release_exe)
 
     # step 4: read case data
-     
-    test_method = "Eval_remove_each_one"
-    # test_method = "Eval_base_and_given_net"
-
-
     process_type = ""
     if mp.para_dict["Procedure"] =="Eval_base_and_given_net" or mp.para_dict["Procedure"] == "Eval_remove_each_one":
         process_type = "Disrupt" 

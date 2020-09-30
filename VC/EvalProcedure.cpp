@@ -40,14 +40,25 @@ void ObjectManager::restoreLink(const int _lid,const double _t0,const double _ca
 void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man)
 {
 	_g.ReadVunLinks(mf.rootfolder + "Input\\" + NetworkName + "_VulnerableLinks.txt");
-	if (WriteOutTo == file || WriteOutTo == both) cout << "Output converge file" << endl;
-	else std::cout << "converge file is not written" << endl;
+	
+	cout << "*******Check Input Vul links********" << endl;
+	for (auto l: _g.VulnerableLinks)
+	{
+		cout << l << ",";
+	}
+	cout << endl;
+	cout << "****************************************************" << endl;
+
+	if (WriteOutTo == file || WriteOutTo == both) 
+		cout << "Info: Print converge to file" << endl;
+	else 
+		std::cout << "Info: Converge file is not written" << endl;
 	// step 1 solve a base network 
 	_g.NowVulLink = -1;  // representing the base graph, 
 	_g.NowCase = -1;  // set the dummy value of the recover case
+	cout << "Info: Start to evaluate base network" << endl;
 	_g.EvaluteGraph(_man, _man.getEqAlgo());
-
-
+	cout << "Info: complete evaluate base network" << endl;
 
 	// Remarks:
 	//2. for the annhhim network, the zone connected the links
@@ -63,9 +74,9 @@ void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man)
 			int tail = _man.getNet()->getLink(linkId)->getNodeFrom();
 			int head = _man.getNet()->getLink(linkId)->getNodeTo();
 			_g.NowVulLink = _g.VulnerableLinks.at(l);
-			cout << "Remove LinkID:" << linkId << ",";
-			cout << "Tail Node:" << tail << ",";
-			cout << "Head Node:" << head << endl;
+			cout << "Info: Remove LinkID:" << linkId << ",";
+			cout << "Tail:" << tail << ",";
+			cout << "Head:" << head << endl;
 			mf.printCaseDescription << _g.NowCase << "," << linkId << std::endl;	
 #ifdef DEBUG
 			/*The following code is to checkt zone node*/
@@ -96,7 +107,7 @@ void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man)
 			disruptOneLink(_g, _man, linkId);
 			_g.EvaluteGraph(_man, _man.getEqAlgo());
 		 	restoreOneLink(_g, _man, linkId);
-			cout << "--Info:Complete remove link " << linkId << " and evaluation--" << endl;
+			cout << "-------Info:Complete remove link " << linkId << " and evaluation--" << endl;
 		}
 	}
 	if (VCprocedure == Procedure::EvalBaseAndOneNet)
@@ -109,7 +120,7 @@ void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man)
 			mf.printCaseDescription << _g.NowCase << "," << l << endl;
 		}
 		_g.EvaluteGraph(_man, _man.getEqAlgo());
-		cout << "Info:Done" << endl;
+		cout << "Info:Complete evaluating the disrupted network" << endl;
 	}
 	std::cout << "--------------------Cheers: C++ completes--------------------------" << endl;
 }
