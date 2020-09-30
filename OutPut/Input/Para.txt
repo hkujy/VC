@@ -1,7 +1,6 @@
-TestIndex,1
 OneDimEsp,1e-07
 UEeps,0.001
 Network,SiouxFalls
 isWriteConverge,0
-Procedure,EvalOne
+Procedure,Eval_base_and_given_net
 WhereToWrite,1

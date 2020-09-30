@@ -13,8 +13,9 @@ enum OutPutChanal
 };
 enum class Procedure
 {
-	EvalOne = 0,    // evaluate each one based on the complete network
-	RecoverOne = 1,    // recover element one by one
+	EvalEachOneByRemove = 0,    // evaluate each one based on the complete network
+	RecoverOne = 1,    // recover element one by one // this is not used for Zoe version
+	EvalBaseAndOneNet = 2, // evaluate based network and one disrupted network 
 	None = -1			// not specified       
 };
 extern std::string NetworkName;
@@ -24,7 +25,6 @@ extern int NumLinks;
 extern int NumNodes;
 extern int NumOD;
 //extern std::ofstream TestStepSize/*;*/
-extern int TestIndex;
 extern double UEeps;
 extern bool isWriteConverge;
 extern OutPutChanal WriteOutTo;

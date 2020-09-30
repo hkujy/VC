@@ -14,7 +14,6 @@ int NumOD;
 double  OneDimEsp;
 double  UEeps;
 int	   UEmaxIter;
-int TestIndex;
 int MaxCsaIter;
 //int ModelIndex;
 OutPutChanal WriteOutTo;

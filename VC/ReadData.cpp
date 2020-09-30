@@ -100,15 +100,15 @@ bool ReadModelParas(){
 			if (fields[1]._Equal("0")) isWriteConverge = false;
 			if (fields[1]._Equal("1")) isWriteConverge = true;
 		}
-		if (fields[0] == "TestIndex")  TestIndex = stoi(fields[1]);
 		if (fields[0] == "Procedure")
 		{
-			if (fields[1] == "EvalOne") VCprocedure = Procedure::EvalOne;
-			if (fields[1] == "RecoverOne") VCprocedure = Procedure::RecoverOne;
+			if (fields[1] == "Eval_remove_each_one") VCprocedure = Procedure::EvalEachOneByRemove;
+			if (fields[1] == "Eval_base_and_given_net") VCprocedure = Procedure::EvalBaseAndOneNet;
 		}
 	}
 	fin.close();
 
-	return PrintModelParas();
+	//return PrintModelParas();
+	return true;
 }
 

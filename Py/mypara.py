@@ -1,32 +1,33 @@
 import os
+import sys
 
-
+#*****************************************
 is_run_exe = True
 # is_run_exe = False
-is_debug_exe = True
-# is_debug_exe = False
-
-gen_linkid_lb = 1
-gen_linkid_up = 50
+# is_debug_exe = True
+is_debug_exe = False
+#*****************************************
 
 recover_measure = "NRI"
 
 class MyParaClass:
     def __init__(self): 
-        self.root_folder = ""
         self.para_dict = {
-            "TestIndex":1,     # 0, enueration, 1 CSA and GA
             "OneDimEsp":0.0000001,
             "UEeps":0.001,
             "Network":"SiouxFalls",
             "isWriteConverge":0, # falase, do not write UE converge on screen
-            "Procedure":"EvalOne",  # Evalute selected components by removing them one by one
+            
+            # you do not have to change the following parameters
+            "Procedure":"Eval_base_and_given_net", # Evaluate the base network first and then the given network
+            "Procedure":"Eval_remove_each_one",  # Evaluate the measure for each component by remove
             # "Procedure":"RecoverOne", # Evaluate the recovered one by one
             "WhereToWrite":1   # 0, screen, 1, file, 2, both
             }
         self.release_exe = ""
         self.debug_exe = ""
         self.output_folder = ""
+        self.root_folder = ""
 
     def get_root_folder(self): 
         folder = os.path.abspath(os.path.dirname(__file__)) 
@@ -48,3 +49,4 @@ class MyParaClass:
 
 def prn_obj(obj):
     print ('\n'.join(['%s:%s' % item for item in obj.__dict__.items()])) 
+

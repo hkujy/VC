@@ -6,33 +6,39 @@
 
 void MyFiles::IniFiles()
 {
-	if (VCprocedure == Procedure::EvalOne) {
+	 
+	printCaseDescription.open(rootfolder + "OutPut//" + "CaseDescript.csv", ios::trunc);
+	printCaseDescription << "CaseIndex,DisruptLinks" << endl;
+
+	if (VCprocedure == Procedure::EvalEachOneByRemove || VCprocedure == Procedure::EvalBaseAndOneNet ) 
+	{
 		printDisruptOD.open(rootfolder + "OutPut//" + "DisruptOD.csv", ios::trunc);
-		printDisruptOD << "RecoverCase,VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
+		printDisruptOD << "Case,VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
 		printDIsruptLink.open(rootfolder + "OutPut//" + "DisrutpLink.csv", ios::trunc);
-		printDIsruptLink << "RecoverCase,VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
+		printDIsruptLink << "Case,VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
 	}
 	else
 	{
 		printDisruptOD.open(rootfolder + "OutPut//" + "DisruptOD.csv", ios::app);
 		printDIsruptLink.open(rootfolder + "OutPut//" + "DisrutpLink.csv", ios::app);
 	}
-	if (VCprocedure == Procedure::RecoverOne) {
-		printRecoverOD.open(rootfolder + "OutPut//" + "RecoverOD.csv", ios::trunc);
-		printRecoverOD << "RecoverCase,VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
-		printRecoverLink.open(rootfolder + "OutPut//" + "RecoverLink.csv", ios::trunc);
-		printRecoverLink << "RecoverCase,VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
-	}
-	else
-	{
-		printRecoverOD.open(rootfolder + "OutPut//" + "RecoverOD.csv", ios::app);
-		printRecoverLink.open(rootfolder + "OutPut//" + "RecoverLink.csv", ios::app);
-	}
+
+	//if (VCprocedure == Procedure::RecoverOne) {
+	//	printRecoverOD.open(rootfolder + "OutPut//" + "RecoverOD.csv", ios::trunc);
+	//	printRecoverOD << "Case,VulLink,Origin,Dest,ODIndex,Demand,UECost" << endl;
+	//	printRecoverLink.open(rootfolder + "OutPut//" + "RecoverLink.csv", ios::trunc);
+	//	printRecoverLink << "Case,VulLink,ID,Tail,Head,T0,Flow,Cap,Alpha,Beta,Cost" << endl;
+	//}
+	//else
+	//{
+	//	printRecoverOD.open(rootfolder + "OutPut//" + "RecoverOD.csv", ios::app);
+	//	printRecoverLink.open(rootfolder + "OutPut//" + "RecoverLink.csv", ios::app);
+	//}
 
 	//printDisruptSummary.open(rootfolder + "OutPut//" + "DisruptSummary.txt", ios::trunc);
 	//printRecoverSummary.open(rootfolder + "OutPut//" + "RecoverSummary.txt", ios::trunc);
 
-	printModelPara.open(rootfolder + "OutPut//" + "ModelPara.csv", ios::trunc);
+	//printModelPara.open(rootfolder + "OutPut//" + "ModelPara.csv", ios::trunc);
 	printLog.open(rootfolder + "OutPut//" + "MsgLog.csv", ios::trunc); printLog.close(); printLog.clear();
 	printLog.open(rootfolder + "OutPut//" + "Log.txt", ios::trunc);
 }

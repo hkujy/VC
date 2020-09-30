@@ -19,7 +19,7 @@ def read_link(mp: mypara.MyParaClass, _cs, _source_file):
     _cs[-1].id = 0
     _cs[-1].vul_link = -1
     for r in range(0, num_of_row):
-        recase = df["RecoverCase"][r]
+        recase = df["Case"][r]
         VulLink = df["VulLink"][r]
         link_id = df["ID"][r]
         Tail = df["Tail"][r]
@@ -30,12 +30,12 @@ def read_link(mp: mypara.MyParaClass, _cs, _source_file):
         Beta = df["Beta"][r]
         Cost = df["Cost"][r]
         T0 = df["T0"][r]
-        if VulLink == _cs[-1].vul_link and _cs[-1].RecoverCase == recase:
+        if VulLink == _cs[-1].vul_link and _cs[-1].CaseIndex == recase:
             pass
         else:
             _cs.append(myclass.ScenarioClass())
             _cs[-1].vul_link = VulLink
-            _cs[-1].RecoverCase = recase
+            _cs[-1].CaseIndex = recase
             _cs[-1].id = _cs[-2].id + 1
         _cs[-1].links.append(myclass.LinkClass())
         _cs[-1].links[-1].id = link_id
@@ -61,18 +61,18 @@ def read_od(mp: mypara.MyParaClass, _cs, _source_file):
     print("read OD output file : {0}".format(_source_file))
     cid = 0
     for r in range(0, num_of_row):
-        recase = df["RecoverCase"][r]
+        recase = df["Case"][r]
         VulLink = df["VulLink"][r]
         Origin = df["Origin"][r]
         Dest = df["Dest"][r]
         ODindex = df["ODIndex"][r]
         Demand = df["Demand"][r]
         UECost = df["UECost"][r]
-        if _cs[cid].vul_link == VulLink and _cs[cid].RecoverCase == recase:
+        if _cs[cid].vul_link == VulLink and _cs[cid].CaseIndex == recase:
             pass
         else:
             cid = cid + 1
-            if _cs[cid].vul_link != VulLink or _cs[cid].RecoverCase != recase:
+            if _cs[cid].vul_link != VulLink or _cs[cid].CaseIndex != recase:
                 print("Warning: The case vul link and id do not match")
         _cs[cid].ods.append(myclass.ODClass())
         _cs[cid].ods[-1].id = ODindex
@@ -97,7 +97,7 @@ def main(mp: mypara.MyParaClass, _type="Disrupt"):
                   "Output\\DisrutpLink.csv")
         read_od(mp, cases, _source_file=mp.root_folder + "Output\\DisruptOD.csv")
         print("Complete read links")
-    if _type is "Recover":
+    elif _type is "Recover":
         print("Read link and OD from *Recover* links files")
         read_link(mp, cases, _source_file=mp.root_folder +
                   "Output\\RecoverLink.csv")

@@ -11,7 +11,7 @@ GRAPH::GRAPH(){
 	this->OriginSet.reserve(NumNodes + 1);
 	this->Nodes.reserve(NumNodes + 1);
 	this->Links.reserve(NumLinks + 1);
-	this->NowRecoverCase = -1;
+	this->NowCase = -1;
 	//int** MinPathPredLink;
 	if (NumNodes==0)
 	{
@@ -347,7 +347,7 @@ void GRAPH::PrintGraph(ObjectManager &Man,std::ofstream &OD_out,std::ofstream &L
 		for (PairODIterator destIt = origin->begin(); destIt != origin->end(); ++destIt)
 		{
 			PairOD* dest = *destIt;
-			OD_out<< NowRecoverCase << ",";
+			OD_out<< NowCase << ",";
 			OD_out<< NowVulLink << ",";
 			OD_out << origin->getIndex() << ",";
 			OD_out << dest->getIndex() << ",";
@@ -363,7 +363,7 @@ void GRAPH::PrintGraph(ObjectManager &Man,std::ofstream &OD_out,std::ofstream &L
 
 	for (auto l = Man.getNet()->beginOnlyLink(); l != NULL; l = Man.getNet()->getNextOnlyLink())
 	{
-		Link_out << NowRecoverCase << ",";
+		Link_out << NowCase << ",";
 		Link_out << NowVulLink << ",";
 		Link_out << l->getIndex() << ",";
 		Link_out << l->getNodeFrom() << ",";
@@ -395,7 +395,8 @@ void GRAPH::EvaluteGraph(ObjectManager &Man, DecoratedEqAlgo *algo)
 			assert(dest->getODminCost() > 0.0f);
 		}
 	}
-	if (VCprocedure==Procedure::EvalOne)
+	if (VCprocedure == Procedure::EvalEachOneByRemove ||
+		VCprocedure == Procedure::EvalBaseAndOneNet)
 	{
 		PrintGraph(Man,mf.printDisruptOD,mf.printDIsruptLink);
 	}

@@ -103,7 +103,7 @@ public:
 	std::vector<vector<int>> RestoreCases; 
 	std::vector<vector<pair<double,double>>>  VulnerableLinksDof;
 	int NowVulLink;
-	int NowRecoverCase;
+	int NowCase;
 	double UNPM;
 	double TotalSystemCost;
 	int **MinPathPredLink;

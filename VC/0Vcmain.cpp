@@ -6,8 +6,8 @@ using namespace std;
 Procedure VCprocedure;
 int IniInterFace(ObjectManager &manager, GRAPH &MyNet);
 bool ReadModelParas();
-void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man);
-void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_ma);
+void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man);
+void Evaluate_One_by_Restore_from_Disruption(GRAPH &_g, ObjectManager &_ma);
 
 /***********************************************/
 /*allow to pass through the origin node*/
@@ -51,15 +51,22 @@ int main(int argc, char *argv[])
 	MyGraph.CreateOriginSet();
 	MyGraph.CreateNodes();
 
-	if (VCprocedure == Procedure::EvalOne)
+	if (VCprocedure == Procedure::EvalEachOneByRemove)
 	{
-		cout << "------Evaluate Each Link Measure By Removing the link------" << endl;
-		Evaluate_One_Remove(MyGraph, manager);
+		cout << "------C++ TEST CASE: Evaluate Each Link Measure By Removing the link------" << endl;
+		Evaluate_By_Removing(MyGraph, manager);
+	}
+	else if (VCprocedure == Procedure::EvalBaseAndOneNet)
+	{
+		cout << "------C++ TEST CASE: Evaluate One Base Net and One disrupted scenario------" << endl;
+		Evaluate_By_Removing(MyGraph, manager);
 	}
 	else if (VCprocedure == Procedure::RecoverOne)
 	{
 		cout << "-------Test on recover of a sequence of links-------" << endl;
-		Evaluate_One_RestoreBack(MyGraph, manager);
+		cout <<"Warning: This Should NOT Be Called" << endl;
+		system("PAUSE");
+		Evaluate_One_by_Restore_from_Disruption(MyGraph, manager);
 	}
 
 	return 0;

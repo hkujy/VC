@@ -37,69 +37,84 @@ void ObjectManager::restoreLink(const int _lid,const double _t0,const double _ca
 }
 
 // evaluate the and carry out UE for each component
-void Evaluate_One_Remove(GRAPH &_g, ObjectManager &_man)
+void Evaluate_By_Removing(GRAPH &_g, ObjectManager &_man)
 {
-
 	_g.ReadVunLinks(mf.rootfolder + "Input\\" + NetworkName + "_VulnerableLinks.txt");
-
 	if (WriteOutTo == file || WriteOutTo == both) cout << "Output converge file" << endl;
 	else std::cout << "converge file is not written" << endl;
 	// step 1 solve a base network 
 	_g.NowVulLink = -1;  // representing the base graph, 
-	_g.NowRecoverCase = -1;  // set the dummy value of the recover case
+	_g.NowCase = -1;  // set the dummy value of the recover case
 	_g.EvaluteGraph(_man, _man.getEqAlgo());
-	// todo 
-	//1. after evaluate the network, set the link cost to be infinity 
+
+
+
+	// Remarks:
 	//2. for the annhhim network, the zone connected the links
 	//3. that is why there is no other links 
 	//4. need to ensure that these LINKs can not be removed
-	for (size_t l = 0; l < _g.VulnerableLinks.size(); l++)
+	
+	if (VCprocedure==Procedure::EvalEachOneByRemove)
 	{
-		CHROME VunSol;
-		std::cout << "link = " << _g.VulnerableLinks.at(l) << ",";
-		std::cout << "Dof = " << _g.VulnerableLinksDof[l].at(0).first << ",";
-		std::cout << "Pro = " << _g.VulnerableLinksDof[l].at(0).second << endl;
-		int linkId = _g.VulnerableLinks.at(l);
-		// check the node of the link
-		//curNode->getIsZone()
-		int tail = _man.getNet()->getLink(linkId)->getNodeFrom();
-		int head = _man.getNet()->getLink(linkId)->getNodeTo();
-		cout << "Tail = " << tail << ", Head = " << head << endl;
-		//if (manager.getNet()->getnod)
-		if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
+		for (size_t l = 0; l < _g.VulnerableLinks.size(); l++)
 		{
-			std::cout << "Node:" << tail << " is a zone node" << endl;
-			system("PAUSE");
-		}
-		if (_man.getNet()->getNodeWithLinks(head)->getIsZone())
-		{
-			std::cout << "Node:" << head << " is a zone node" << endl;
-			system("PAUSE");
-		}
-		//for (int lol = 0; lol < _g.Nodes.at(tail).OutLinks.size(); lol++)
-		//{
-		//	std::cout << "Leaving link index = " << _g.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
-		//}
-		if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
-		{
-			if (_g.Nodes.at(tail).OutLinks.size() == 1) {
-				std::cout << "********The tail node is a zone and there is only one link leaving the node" << std::endl;
+			_g.NowCase++;
+			int linkId = _g.VulnerableLinks.at(l);
+			int tail = _man.getNet()->getLink(linkId)->getNodeFrom();
+			int head = _man.getNet()->getLink(linkId)->getNodeTo();
+			_g.NowVulLink = _g.VulnerableLinks.at(l);
+			cout << "Remove LinkID:" << linkId << ",";
+			cout << "Tail Node:" << tail << ",";
+			cout << "Head Node:" << head << endl;
+			mf.printCaseDescription << _g.NowCase << "," << linkId << std::endl;	
+#ifdef DEBUG
+			/*The following code is to checkt zone node*/
+			if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
+			{
+				std::cout << "Node:" << tail << " is a zone node" << endl;
 				system("PAUSE");
-				continue;
 			}
+			if (_man.getNet()->getNodeWithLinks(head)->getIsZone())
+			{
+				std::cout << "Node:" << head << " is a zone node" << endl;
+				system("PAUSE");
+			}
+			//for (int lol = 0; lol < _g.Nodes.at(tail).OutLinks.size(); lol++)
+			//{
+			//	std::cout << "Leaving link index = " << _g.Nodes.at(tail).OutLinks.at(lol)->ID << endl;
+			//}
+			if (_man.getNet()->getNodeWithLinks(tail)->getIsZone())
+			{
+				if (_g.Nodes.at(tail).OutLinks.size() == 1) {
+					std::cout << "********The tail node is a zone and there is only one link leaving the node" << std::endl;
+					system("PAUSE");
+					continue;
+				}
+			}
+#endif // DEBUG
+			_man.setAlgoNull();
+			disruptOneLink(_g, _man, linkId);
+			_g.EvaluteGraph(_man, _man.getEqAlgo());
+		 	restoreOneLink(_g, _man, linkId);
+			cout << "--Info:Complete remove link " << linkId << " and evaluation--" << endl;
 		}
-		VunSol.VulnerableLinks.push_back(_g.VulnerableLinks.at(l));
-		VunSol.VulnerableLinkDof.push_back(_g.VulnerableLinksDof[l].at(0).first);
-		VunSol.VulnerableLinkDofProb.push_back(_g.VulnerableLinksDof[l].at(0).second);
-		_g.NowVulLink = _g.VulnerableLinks.at(l);
-		_man.setAlgoNull();
-		VunSol.EvaluateSol(_g, _man);
 	}
-	std::cout << "Cheers" << endl;
-
+	if (VCprocedure == Procedure::EvalBaseAndOneNet)
+	{
+		cout << "Info:Start to evaluate the disrupted network" << endl;
+		_g.NowCase = 0;
+		for (const auto &l : _g.VulnerableLinks)
+		{
+			disruptOneLink(_g, _man, l);
+			mf.printCaseDescription << _g.NowCase << "," << l << endl;
+		}
+		_g.EvaluteGraph(_man, _man.getEqAlgo());
+		cout << "Info:Done" << endl;
+	}
+	std::cout << "--------------------Cheers: C++ completes--------------------------" << endl;
 }
 // evaluate the and carry out UE for each component
-void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
+void Evaluate_One_by_Restore_from_Disruption(GRAPH &_g, ObjectManager &_man)
 {
 	// step 1 : read the initial disrupted network 
 	_g.ReadIniDisrup(mf.rootfolder + "Input\\" + NetworkName + "_IniDisrupt.txt");
@@ -137,7 +152,7 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 	
 	// step 3: for all the cases restore the links
 
-	_g.NowRecoverCase = 0;
+	_g.NowCase = 0;
 	_g.ReadRestoreCase(mf.rootfolder + "Input\\" + NetworkName + "_recover.txt");
 	for (size_t c = 0; c < _g.RestoreCases.size(); c++)
 	{
@@ -151,7 +166,7 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 			_g.EvaluteGraph(_man, _man.getEqAlgo());
 		}
 		cout << "all links has been added back" << endl;	
-		_g.NowRecoverCase++;
+		_g.NowCase++;
 		// before evaluate the next case, remove all the disrupted links
 		for (const auto &l:_g.IniDisruptLinks)
 		{
@@ -160,3 +175,4 @@ void Evaluate_One_RestoreBack(GRAPH &_g, ObjectManager &_man)
 	}
 
 }
+

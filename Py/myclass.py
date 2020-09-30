@@ -29,7 +29,7 @@ class ScenarioClass:
         self.vul_link = -1
         self.ods = []
         self.links = []
-        self.RecoverCase = -1
+        self.CaseIndex = -1
         self.vul_measure = {
             "V/C":-1.0,  # v/c ratio
             "NEI":-1.0,  # network efficiency
@@ -47,7 +47,7 @@ class ScenarioClass:
         """
         for l in self.links:
             if l.id == self.vul_link:
-                if mp.para_dict["Procedure"] == "EvalOne":
+                if mp.para_dict["Procedure"] == "Eval_base_and_given_net" or mp.para_dict["Procedure"] == "Eval_remove_each_one":
                     l.vc_ratio = 99
                 elif mp.para_dict["Procedure"] == "RecoverOne":
                     l.vc_ratio = l.flow/l.cap
@@ -63,7 +63,7 @@ class ScenarioClass:
         self.vul_measure["NRI"] = 0.0
         for l in self.links:                
             if l.id == self.vul_link:
-                if mp.para_dict["Procedure"] == "EvalOne":
+                if mp.para_dict["Procedure"] == "Eval_base_and_given_net" or mp.para_dict["Procedure"] == "Eval_remove_each_one":
                     pass
                 elif mp.para_dict["Procedure"] == "RecoverOne":
                     self.vul_measure["NRI"] = self.vul_measure["NRI"] + l.cost*l.flow

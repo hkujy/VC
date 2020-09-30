@@ -12,6 +12,7 @@ class MyFiles
 public:
 	std::ofstream printDisruptOD;
 	std::ofstream printDIsruptLink;
+	std::ofstream printCaseDescription;
 	//std::ofstream printDisruptSummary;
 	std::ofstream printRecoverOD;
 	std::ofstream printRecoverLink;
@@ -28,6 +29,7 @@ public:
 		printDisruptOD.close(); printDIsruptLink.close();
 		printRecoverLink.close();
 		printModelPara.close(); printLog.close(); printRecoverOD.close();
+		printCaseDescription.close();
 		//printDisruptSummary.close(); printDisruptSummary.close();
 	}
 	void IniFiles();
