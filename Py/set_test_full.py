@@ -78,8 +78,12 @@ def one_test(mp: mypara.MyParaClass, _name="try"):
     
     # step 5: plot main function
     # myplot.main()
-    # step 5: copy output folder to a seperate test folder
+    # step 5
+    # a. copy output and script folder to a seperate test folder
+
     copy_folder(mp.output_folder, mp.root_folder+"TestCases\\"+_name+"\\")
+    copy_folder(mp.root_folder+"Py\\",mp.root_folder+"TestCases\\"+_name+"\\Py"+"\\")
+
     return cases
 
 
