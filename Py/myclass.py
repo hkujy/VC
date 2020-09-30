@@ -21,7 +21,7 @@ class ODClass:
         self.origin = -1
         self.dest = -1
         self.demand = -1
-        self.UECot = -1
+        self.UECost = -1
 
 class ScenarioClass:
     def __init__(self): 

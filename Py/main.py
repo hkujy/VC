@@ -101,13 +101,52 @@ def repair(H, sorted_edges, TF, connection):
 if __name__== "__main__":
     
     
-    disrupt_links = [11,12] 
-     
-    # test_method = "Eval_remove_each_one"
-    test_method = "Eval_base_and_given_net"
+    disrupt_links = [11,12,13] 
 
-    FM.main_func(disrupt_links,test_method)
+    #***********************************
+    # the disrupt scenario contains 3 links
+    # the results contain two cases
+    #   0. one is the base case without any disruption
+    #   1. all the listed links disrupt
+    test_method = "Eval_base_and_given_net"
+    test_case_1 = FM.main_func(disrupt_links,test_method)
+    #***********************************
     
+
+    #***********************************
+    # Given a set of links 
+    # to compute the measure for each link
+    # each case only remove one link
+    test_method = "Eval_remove_each_one"
+    test_case_2 = FM.main_func(disrupt_links,test_method)
+    #***********************************
+
+
+    #***********************************
+    # How to access and use the reults
+    # for test case 1
+    print("------Example of test case 1------------------")
+    print("Total Cost of base case in Test_Case_1 is {0}".format(test_case_1[0].vul_measure["NRI"]))
+    print("Total Cost of disrupted scenario in Test case 1 is {0}".format(test_case_1[1].vul_measure["NRI"]))
+
+    print("------Example of test case 2------------------")
+    # for test case 2: 
+    for c in test_case_2:
+        print("CaseIndex={0},RemoveLink={1},TotalCost/NRI={2}".format(c.CaseIndex,c.vul_link,c.vul_measure["NRI"]))
+
+    print("------Example of get cost------------------")
+    # select one OD pair
+    _od = 11
+    _link = 1
+    _c = test_case_1[0]   # can be any case
+
+    print("OD pair={0},origin={1},dest={2},demand={3},UECost={4}".format
+    (_od, _c.ods[_od].origin, _c.ods[_od].dest,_c.ods[_od].demand, _c.ods[_od].UECost))
+
+    print("link={0},tail={1},head={2},flow={3},cost={4},v/c_ratio={5}".format
+    (_link,_c.links[_link].tail, _c.links[_link].head,_c.links[_link].flow, _c.links[_link].cost,_c.links[_link].vc_ratio))
+
+
     exit() 
     # dt = pd.read_csv("/Users/wangyi/Documents/Projects/WithYuJiang/Code/edge_list.csv")  #source/target/length
     dt = pd.read_csv("edge_list.csv")  #source/target/length

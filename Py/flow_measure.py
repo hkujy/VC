@@ -21,7 +21,9 @@ def main_func(_disrupt_links,_method):
     print("root folder is {0}".format(mp.root_folder))
     mp.para_dict["Procedure"] = _method
 
-    st.test_case(mp,_disrupt_links,_method)
+    cases = st.test_case(mp,_disrupt_links,_method)
+
+    return cases
 
 # if __name__== "__main__":
 #     # Test_Toler()
